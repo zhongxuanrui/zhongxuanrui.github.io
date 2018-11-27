@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>phaserjs教程一之像素小鸟 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Phaser是一个简单易用且功能强大的html5游戏框架，利用它可以很轻松的开发出一个html5游戏。项目上线一周，闲来无事，捣鼓一个新的框架吧！ 1.Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个 Game 对象就可以了。当然如果不指定canvas元素的存放位置会默认到body里面。html代码如下：123456789101112">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phaserjs教程一之像素小鸟">
+<meta property="og:url" content="http://yoursite.com/2018/01/11/phaserjs教程一之像素小鸟/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Phaser是一个简单易用且功能强大的html5游戏框架，利用它可以很轻松的开发出一个html5游戏。项目上线一周，闲来无事，捣鼓一个新的框架吧！ 1.Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个 Game 对象就可以了。当然如果不指定canvas元素的存放位置会默认到body里面。html代码如下：123456789101112">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-15T13:07:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="phaserjs教程一之像素小鸟">
+<meta name="twitter:description" content="Phaser是一个简单易用且功能强大的html5游戏框架，利用它可以很轻松的开发出一个html5游戏。项目上线一周，闲来无事，捣鼓一个新的框架吧！ 1.Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个 Game 对象就可以了。当然如果不指定canvas元素的存放位置会默认到body里面。html代码如下：123456789101112">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-phaserjs教程一之像素小鸟" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/phaserjs教程一之像素小鸟/" class="article-date">
+  <time datetime="2018-01-11T06:04:35.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/杂谈/">杂谈</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      phaserjs教程一之像素小鸟
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Phaser是一个简单易用且功能强大的html5游戏框架，利用它可以很轻松的开发出一个html5游戏。<br>项目上线一周，闲来无事，捣鼓一个新的框架吧！</p>
+<h5 id="1-Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个-Game-对象就可以了。当然如果不指定canvas元素的存放位置会默认到body里面。"><a href="#1-Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个-Game-对象就可以了。当然如果不指定canvas元素的存放位置会默认到body里面。" class="headerlink" title="1.Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个 Game 对象就可以了。当然如果不指定canvas元素的存放位置会默认到body里面。"></a>1.Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个 Game 对象就可以了。当然如果不指定canvas元素的存放位置会默认到body里面。</h5><p>html代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"yes"</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"yes"</span> <span class="attr">name</span>=<span class="string">"apple-touch-fullscreen"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"black"</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"</span> <span class="attr">name</span>=<span class="string">"viewport"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>flappy bird<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		*&#123;</span></span><br><span class="line"><span class="undefined">			padding: 0px;</span></span><br><span class="line"><span class="undefined">			margin: 0px;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/phaser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/game.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="2-然后实例化一个Game对象"><a href="#2-然后实例化一个Game对象" class="headerlink" title="2.然后实例化一个Game对象"></a>2.然后实例化一个Game对象</h5><p>部分代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> renderMode = Phaser.Device.isAndroidStockBrowser() ? Phaser.CANVAS: Phaser.AUTO;</span><br><span class="line">	game = <span class="keyword">new</span> Phaser.Game(<span class="number">320</span>, <span class="number">505</span>, renderMode, <span class="literal">null</span>, bootState);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>稍微解析下Phaser.Game这个函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Phaser.Game(width, height, renderer, parent, state, transparent, antialias, physicsConfig)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>width: 渲染游戏的canvas的宽度</p>
+</blockquote>
+<blockquote>
+<p>height: 渲染游戏的canvas的高度</p>
+</blockquote>
+<blockquote>
+<p>renderer: 渲染方式，Phaser.CANVAS为画布，Phaser.WEBGL为WebGL来渲染，Phaser.AUTO为自动侦测</p>
+</blockquote>
+<blockquote>
+<p>parent: 用来放置canvas元素的父元素，可以是一个元素id，也可以是dom元素本身，phaser会自动创建一个canvas并插入到这个元素中，实测不带会追加到body</p>
+</blockquote>
+<blockquote>
+<p>state: state可以理解为场景，在这里指定state表示让游戏首先加载这个场景，但也可以不在这里指定state，而在之后的代码中决定首先加载哪个state。</p>
+</blockquote>
+<blockquote>
+<p>transparent: 是否使用透明的canvas背景</p>
+</blockquote>
+<blockquote>
+<p>antialias: 是否启用抗锯齿</p>
+</blockquote>
+<blockquote>
+<p>physicsConfig: 游戏物理系统配置参数</p>
+</blockquote>
+<h5 id="3-实例化Game对象后，接下来要做的就是创建游戏的各种场景（state）。state可以是一个js自定义对象，也可以是一个函数，只要它们存在preload、create、update这三个方法中的任意一个，就是一个合法的state。"><a href="#3-实例化Game对象后，接下来要做的就是创建游戏的各种场景（state）。state可以是一个js自定义对象，也可以是一个函数，只要它们存在preload、create、update这三个方法中的任意一个，就是一个合法的state。" class="headerlink" title="3.实例化Game对象后，接下来要做的就是创建游戏的各种场景（state）。state可以是一个js自定义对象，也可以是一个函数，只要它们存在preload、create、update这三个方法中的任意一个，就是一个合法的state。"></a>3.实例化Game对象后，接下来要做的就是创建游戏的各种场景（state）。state可以是一个js自定义对象，也可以是一个函数，只要它们存在preload、create、update这三个方法中的任意一个，就是一个合法的state。</h5><p>ex:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//state可以是一个自定义对象</span></span><br><span class="line"><span class="keyword">var</span> state1 = &#123;</span><br><span class="line">    preload : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    create : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    update : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//state也可以是一个构造函数</span></span><br><span class="line"><span class="keyword">var</span> state2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.preload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只要存在preload、create、update三个方法中的一个就可以了</span></span><br><span class="line"><span class="keyword">var</span> state3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当然state里也可以存在其他属性或方法</span></span><br><span class="line"><span class="keyword">var</span> state4 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.funcA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">//其他方法</span></span><br><span class="line">    <span class="keyword">this</span>.funcB = <span class="string">'hello'</span>; <span class="comment">//其他属性</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中</p>
+<ul>
+<li>preload是预加载（最先执行）</li>
+<li>create是初始化以及构建场景</li>
+<li>update是更新函数,会在游戏的每一帧都执行，以此来创造一个动态的游戏。</li>
+</ul>
+<p>在文中代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bootState = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.preload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> preloadState = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.preload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> menuState = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.preload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> playState = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.preload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="4-制作资源加载进度条"><a href="#4-制作资源加载进度条" class="headerlink" title="4.制作资源加载进度条"></a>4.制作资源加载进度条</h5><p>游戏要用到的一些图片、声音等资源都需要提前加载，有时候如果资源很多，就有必要做一个资源加载进度的页面，提高用户体验，这时在预加载场景用到的进度条需要在一个基础的场景来加载，命名这个场景为bootState。<br>具体代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">bootState = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.preload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		game.load.image(<span class="string">'loading'</span>,<span class="string">'assets/preloader.gif'</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		game.canvas.style.backgroundColor = <span class="string">"#000000"</span>;</span><br><span class="line">        game.canvas.oncontextmenu = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            e.preventDefault()</span><br><span class="line">        &#125;;</span><br><span class="line">        game.stage.disableVisibilityChange = <span class="literal">true</span>;</span><br><span class="line">        game.device.desktop ? <span class="keyword">this</span>.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT : <span class="keyword">this</span>.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;</span><br><span class="line">        game.scale.pageAlignHorizontally = <span class="literal">true</span>;</span><br><span class="line">        game.scale.pageAlignVertically = <span class="literal">true</span>;</span><br><span class="line">        game.scale.refresh();</span><br><span class="line">        <span class="keyword">this</span>.scale.forcePortrait = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.input.maxPointers = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		game.state.add(<span class="string">'preloadState'</span>,preloadState);</span><br><span class="line">		game.state.start(<span class="string">'preloadState'</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="5-加载资源"><a href="#5-加载资源" class="headerlink" title="5.加载资源"></a>5.加载资源</h5><p>Phaser中资源的加载都是通过 Phaser.Loader 这个对象的方法来完成的,游戏实例的load属性就是指向当前游戏的Loader对象，在我们这里就是game.load。<br>代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">preloadState = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.preload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> preloadSprite = game.add.sprite(<span class="number">35</span>,game.height/<span class="number">2</span>,<span class="string">'loading'</span>);</span><br><span class="line">		game.load.setPreloadSprite(preloadSprite);</span><br><span class="line"></span><br><span class="line">		game.load.image(<span class="string">'background'</span>,<span class="string">'assets/background.png'</span>);</span><br><span class="line">    	game.load.image(<span class="string">'ground'</span>,<span class="string">'assets/ground.png'</span>);</span><br><span class="line">    	game.load.image(<span class="string">'title'</span>,<span class="string">'assets/title.png'</span>);</span><br><span class="line">    	game.load.spritesheet(<span class="string">'bird'</span>,<span class="string">'assets/bird.png'</span>,<span class="number">34</span>,<span class="number">24</span>,<span class="number">3</span>);</span><br><span class="line">    	game.load.image(<span class="string">'btn'</span>,<span class="string">'assets/start-button.png'</span>);</span><br><span class="line">    	game.load.spritesheet(<span class="string">'pipe'</span>,<span class="string">'assets/pipes.png'</span>,<span class="number">54</span>,<span class="number">320</span>,<span class="number">2</span>);</span><br><span class="line">    	game.load.bitmapFont(<span class="string">'flappy_font'</span>, <span class="string">'assets/fonts/flappyfont/flappyfont.png'</span>, <span class="string">'assets/fonts/flappyfont/flappyfont.fnt'</span>);</span><br><span class="line">    	game.load.audio(<span class="string">'fly_sound'</span>, <span class="string">'assets/flap.wav'</span>);</span><br><span class="line">    	game.load.audio(<span class="string">'score_sound'</span>, <span class="string">'assets/score.wav'</span>);</span><br><span class="line">    	game.load.audio(<span class="string">'hit_pipe_sound'</span>, <span class="string">'assets/pipe-hit.wav'</span>);</span><br><span class="line">    	game.load.audio(<span class="string">'hit_ground_sound'</span>, <span class="string">'assets/ouch.wav'</span>);</span><br><span class="line"></span><br><span class="line">    	game.load.image(<span class="string">'ready_text'</span>,<span class="string">'assets/get-ready.png'</span>);</span><br><span class="line">    	game.load.image(<span class="string">'play_tip'</span>,<span class="string">'assets/instructions.png'</span>);</span><br><span class="line">    	game.load.image(<span class="string">'game_over'</span>,<span class="string">'assets/gameover.png'</span>);</span><br><span class="line">    	game.load.image(<span class="string">'score_board'</span>,<span class="string">'assets/scoreboard.png'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		game.state.add(<span class="string">'menuState'</span>,menuState);</span><br><span class="line">		game.state.start(<span class="string">'menuState'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="6-制作游戏菜单页面"><a href="#6-制作游戏菜单页面" class="headerlink" title="6.制作游戏菜单页面"></a>6.制作游戏菜单页面</h5><p>代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">menuState = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		game.add.tileSprite(<span class="number">0</span>,<span class="number">0</span>,game.width,game.height,<span class="string">'background'</span>).autoScroll(<span class="number">-10</span>,<span class="number">0</span>);</span><br><span class="line">		game.add.tileSprite(<span class="number">0</span>,game.height<span class="number">-112</span>,game.width,<span class="number">112</span>,<span class="string">'ground'</span>).autoScroll(<span class="number">-100</span>,<span class="number">0</span>);</span><br><span class="line">		<span class="keyword">var</span> titleGroup = game.add.group();<span class="comment">//Phaser.Group，也就是组。组相当于一个父容器</span></span><br><span class="line">		titleGroup.create(<span class="number">0</span>,<span class="number">0</span>,<span class="string">'title'</span>);</span><br><span class="line">		<span class="keyword">var</span> bird = titleGroup.create(<span class="number">190</span>, <span class="number">10</span>, <span class="string">'bird'</span>);</span><br><span class="line">		bird.animations.add(<span class="string">'fly'</span>);</span><br><span class="line">		bird.animations.play(<span class="string">'fly'</span>,<span class="number">12</span>,<span class="literal">true</span>);</span><br><span class="line">		titleGroup.x = <span class="number">35</span>;</span><br><span class="line">		titleGroup.y = <span class="number">100</span>;</span><br><span class="line">		game.add.tween(titleGroup).to(&#123; <span class="attr">y</span>:<span class="number">120</span> &#125;,<span class="number">1000</span>,<span class="literal">null</span>,<span class="literal">true</span>,<span class="number">0</span>,<span class="built_in">Number</span>.MAX_VALUE,<span class="literal">true</span>);</span><br><span class="line">		<span class="keyword">var</span> btn = game.add.button(game.width/<span class="number">2</span>,game.height/<span class="number">2</span>,<span class="string">'btn'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			game.state.add(<span class="string">'playState'</span>,playState);</span><br><span class="line">			game.state.start(<span class="string">'playState'</span>);</span><br><span class="line">		&#125;);</span><br><span class="line">		btn.anchor.setTo(<span class="number">0.5</span>,<span class="number">0.5</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>TileSprite本质上还是一个sprite对象,TileSprite的贴图既可以水平移动也可以垂直移动，或者两者同时移动，我们只需要调用TileSprite对象的autoScroll(x,y)方法就可以使它的贴图动起来</p>
+<h5 id="7-游戏主场景"><a href="#7-游戏主场景" class="headerlink" title="7.游戏主场景"></a>7.游戏主场景</h5><p>部分代码：</p>
+<h6 id="启用物理系统-默认是关闭的"><a href="#启用物理系统-默认是关闭的" class="headerlink" title="启用物理系统,默认是关闭的"></a>启用物理系统,默认是关闭的</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">game.physics.enable(object, system, debug)</span><br></pre></td></tr></table></figure>
+<p>object : 要开启物理系统的对象，可以是单个对象，也可以是一个包含多个对象的数组<br>system : 要启用的物理系统，默认为 Phaser.Physics.ARCADE，Phaser目前支持三种物理引擎，分别是Arcade ，P2 以及 Ninja。<br>debug : 是否开启调试</p>
+<h6 id="鼠标点击事件"><a href="#鼠标点击事件" class="headerlink" title="鼠标点击事件"></a>鼠标点击事件</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> input = game.input; <span class="comment">//当前游戏的input对象</span></span><br><span class="line"><span class="keyword">var</span> signal = input.onDown; <span class="comment">//鼠标按下时的 Signal对象</span></span><br><span class="line">signal.add(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">//给Signal 绑定事件处理函数</span></span><br></pre></td></tr></table></figure>
+<h6 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a>计时器</h6><p>Phaser提供Timer对象来实现<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loop(delay, callback, callbackContext, <span class="built_in">arguments</span>); <span class="comment">//以指定的时间间隔无限重复执行某一个函数，直到调用了Timer对象的stop()方法才停止</span></span><br><span class="line">repeat(delay, repeatCount, callback, callbackContext, <span class="built_in">arguments</span>); <span class="comment">//让某个函数重复执行，可以指定重复的次数</span></span><br></pre></td></tr></table></figure></p>
+<p>ex:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">game.time.events.loop(time, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;, <span class="keyword">this</span>); <span class="comment">//利用时钟对象来重复产生管道</span></span><br><span class="line">game.time.events.stop(<span class="literal">false</span>); <span class="comment">//先让他停止，因为即使没调用start方法，它也会自动启动，这应该是一个bug</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="重力和速度"><a href="#重力和速度" class="headerlink" title="重力和速度"></a>重力和速度</h6><p>Phaser.Physics.Arcade.Body 对象，也就是当你是用arcade物理引擎时 sprite.body 所指向的对象，拥有很多跟物理相关的属性和方法。其中的 gravity 对象代表重力，它有x和y两个属性，分别代表水平方向和垂直方向的重力。我们可以使用它的 setTo(x,y)方法来同事设置两个方向的重力。设置了重力的物体，它的运动会受到重力的影响，与真实生活中的物理现象是一致的。然后这个body它还有一个 velocity 对象，表示物体的速度，跟重力一样，都分水平和垂直两个方向，也可以用setTo(x,y)方法来设置。一旦给物体设置了合适的速度，它便能动了</p>
+<h6 id="碰撞检测"><a href="#碰撞检测" class="headerlink" title="碰撞检测"></a>碰撞检测</h6><p>在Arcade物理引擎中，碰撞检测主要用到两个函数，一个是collide，还有一个是overlap。</p>
+<h6 id="声音的播放"><a href="#声音的播放" class="headerlink" title="声音的播放"></a>声音的播放</h6><p>ex:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">game.load.audio(<span class="string">'score_sound'</span>, <span class="string">'assets/score.wav'</span>);<span class="comment">//得分的音效</span></span><br><span class="line"><span class="keyword">this</span>.soundScore = game.add.sound(<span class="string">'score_sound'</span>);</span><br><span class="line"><span class="keyword">this</span>.soundScore.play(); <span class="comment">//播放声音</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/11/phaserjs教程一之像素小鸟/" data-id="cjozunvz40073osanpq2eyurj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/12/egret上传图片第三方库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          egret学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/02/移动端资源和小技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">移动端资源和小技巧</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Egret/">Egret</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos2d-js/">cocos2d-js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos-creator/">cocos_creator</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocoscreater/">cocoscreater</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/createjs/">createjs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/seajs/">seajs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码片段/">代码片段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/杂谈/">杂谈</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端规范/">前端规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作生活/">工作生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网址收藏/">网址收藏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome浏览器/">Chrome浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Egret/">Egret</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-js/">cocos2d-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/createjs/">createjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastClick/">fastClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-ssh/">git/ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端规范/">前端规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网址收藏/">网址收藏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行业/">行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Chrome浏览器/" style="font-size: 10px;">Chrome浏览器</a> <a href="/tags/Egret/" style="font-size: 10px;">Egret</a> <a href="/tags/cocos2d-js/" style="font-size: 15px;">cocos2d-js</a> <a href="/tags/createjs/" style="font-size: 10px;">createjs</a> <a href="/tags/css3/" style="font-size: 13.33px;">css3</a> <a href="/tags/fastClick/" style="font-size: 10px;">fastClick</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-ssh/" style="font-size: 10px;">git/ssh</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/seajs/" style="font-size: 11.67px;">seajs</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/代码片段/" style="font-size: 20px;">代码片段</a> <a href="/tags/前端规范/" style="font-size: 10px;">前端规范</a> <a href="/tags/工作/" style="font-size: 18.33px;">工作</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/网址收藏/" style="font-size: 16.67px;">网址收藏</a> <a href="/tags/行业/" style="font-size: 10px;">行业</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/遇到的问题及解决方案/" style="font-size: 15px;">遇到的问题及解决方案</a> <a href="/tags/问题记录/" style="font-size: 10px;">问题记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/07/使用cocos-creator开发中碰到的问题及解决方案/">使用cocos creator开发中碰到的问题及解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/把前端应用部署到GitHub/">把前端应用部署到GitHub</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/canvas-长按保存图片/">canvas 长按保存图片</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-微信小游戏排行榜/">cocoscreater_微信小游戏排行榜</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-触摸事件类型和事件对象/">cocoscreater_触摸事件类型和事件对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

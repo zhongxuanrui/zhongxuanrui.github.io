@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>seajs路径问题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="seajs模块路径解析 最近在试着用seajs + grunt改造现有项目， 遇到的最大的问题就是seajs命名与调用， 简单总结一下。 模块调用 seajs中调用模块有两种方式，seajs.use(ID) 、 require(ID)。 ID命名 完整绝对路径 例如 “http://example.com/test/js/jquery/jquery.js&amp;quot;以 “.” 开头 例如 “./h">
+<meta name="keywords" content="seajs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="seajs路径问题">
+<meta property="og:url" content="http://yoursite.com/2016/12/03/seajs路径问题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="seajs模块路径解析 最近在试着用seajs + grunt改造现有项目， 遇到的最大的问题就是seajs命名与调用， 简单总结一下。 模块调用 seajs中调用模块有两种方式，seajs.use(ID) 、 require(ID)。 ID命名 完整绝对路径 例如 “http://example.com/test/js/jquery/jquery.js&amp;quot;以 “.” 开头 例如 “./h">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-26T01:43:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="seajs路径问题">
+<meta name="twitter:description" content="seajs模块路径解析 最近在试着用seajs + grunt改造现有项目， 遇到的最大的问题就是seajs命名与调用， 简单总结一下。 模块调用 seajs中调用模块有两种方式，seajs.use(ID) 、 require(ID)。 ID命名 完整绝对路径 例如 “http://example.com/test/js/jquery/jquery.js&amp;quot;以 “.” 开头 例如 “./h">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-seajs路径问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/seajs路径问题/" class="article-date">
+  <time datetime="2016-12-03T01:36:50.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/seajs/">seajs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      seajs路径问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>seajs模块路径解析</p>
+<p>最近在试着用seajs + grunt改造现有项目， 遇到的最大的问题就是seajs命名与调用， 简单总结一下。</p>
+<p>模块调用</p>
+<p>seajs中调用模块有两种方式，seajs.use(ID) 、 require(ID)。</p>
+<p>ID命名</p>
+<p>完整绝对路径 例如 “<a href="http://example.com/test/js/jquery/jquery.js&quot;" target="_blank" rel="noopener">http://example.com/test/js/jquery/jquery.js&quot;</a><br>以 “.” 开头 例如 “./home/main” “../main”<br>以 “/“ 开头 例如 “/js/home/“<br>普通命名 例如 “home/main”<br>模块路径解析</p>
+<p>替换alias<br>添加base前缀<br>可以在seajs.config()方法中设置ID别名和基础路径, 例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">    base:<span class="string">"js"</span>,</span><br><span class="line">    alias: &#123;</span><br><span class="line">        jquery: <span class="string">"/jquery/jquery"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>base添加规则</p>
+<p>完整的绝对路径 不会加base</p>
+<p>以 “.” 开头 会相对于当前（被调用的）模块解析地址。 如果不存在被调用的模块（如seajs.use() ）， 则会相对于当前页面解析地址。</p>
+<p>以 “/“ 开头 相对于当前页面的根目录 解析地址</p>
+<p>普通命名 直接加上base前缀</p>
+<p>base值</p>
+<p>base 默认值是 seajs所在目录</p>
+<p>seajs.config()中base的解析与ID命名解析规则相同</p>
+<p>例如:</p>
+<p><a href="http://example.com/test/js/sea/sea.js" target="_blank" rel="noopener">http://example.com/test/js/sea/sea.js</a></p>
+<p><a href="http://example.com/test/index.html" target="_blank" rel="noopener">http://example.com/test/index.html</a></p>
+<p>在index.html中调用了sea.js</p>
+<p>base的默认值为 “<a href="http://example.com/test/js/sea/&quot;" target="_blank" rel="noopener">http://example.com/test/js/sea/&quot;</a></p>
+<p>如果使用seajs.config()设置了base</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">    base: <span class="string">"home"</span>  <span class="comment">// base值为 "http://example.com/test/js/sea/home"&#125;);</span></span><br><span class="line"></span><br><span class="line">seajs.confg(&#123;</span><br><span class="line">    base: <span class="string">"./home"</span>  <span class="comment">// base值为 "http://example.com/test/home"&#125;);</span></span><br><span class="line"></span><br><span class="line">seajs.conifg(&#123;</span><br><span class="line">    base: <span class="string">"/home"</span>   <span class="comment">// base值为 "http://example.com/home"&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>seajs.config()中的base 与 seajs.use() 的ID一样， “.” 开头的ID 会相对于当前页面 解析地址（因为不存在被调用的模块）<br>完整的解析例子：</p>
+<p>有如下文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//example.com/test/js/sea/sea.js</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//example.com/test/js/home/main.js</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//example.com/test/js/home/tpl.js</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//example.com/test/index.html</span></span><br></pre></td></tr></table></figure></p>
+<p>index.html页面调用sea.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">    base: <span class="string">"./js"</span>        <span class="comment">// base为 "http://example.com/test/js"    </span></span><br><span class="line">    alias: &#123;        <span class="string">"jquery"</span>: <span class="string">"jquery/jquery"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);<span class="comment">// 调用 mian seajs.use("home/main");     // 解析后的路径为 "http://example.com/test/js/home/main.js"// 也可以这么写seajs.use("./js/home/main");    // 解析路径为 "http://example.com/test/js/home/main.js"main.js</span></span><br><span class="line"></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;    </span><br><span class="line">      <span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">"jquery"</span>);      <span class="comment">// "http://example.com/test/js/jquery/jquery.js"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 tpl</span></span><br><span class="line">    <span class="keyword">var</span> tpl = <span class="built_in">require</span>(<span class="string">"./tpl"</span>);     <span class="comment">// "http://example.com/test/js/home/tpl.js"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 也可以</span></span><br><span class="line">    <span class="keyword">var</span> tpl = <span class="built_in">require</span>(<span class="string">"home/tpl"</span>);  <span class="comment">// "http://example.com/test/js/home/tpl.js"&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>以上例子中的模块define() 都没有定义ID， 实际上项目中打包时会根据配置 自动为模块设定ID， 打包到同一个文件中， 相关问题以后有时间再总结。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/seajs路径问题/" data-id="cjozunvx0003gosanluempmb7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seajs/">seajs</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/03/闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          闭包
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/03/关于input输入框页面被放大的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"> 关于input输入框页面被放大的问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Egret/">Egret</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos2d-js/">cocos2d-js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos-creator/">cocos_creator</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocoscreater/">cocoscreater</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/createjs/">createjs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/seajs/">seajs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码片段/">代码片段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/杂谈/">杂谈</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端规范/">前端规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作生活/">工作生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网址收藏/">网址收藏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome浏览器/">Chrome浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Egret/">Egret</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-js/">cocos2d-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/createjs/">createjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastClick/">fastClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-ssh/">git/ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端规范/">前端规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网址收藏/">网址收藏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行业/">行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Chrome浏览器/" style="font-size: 10px;">Chrome浏览器</a> <a href="/tags/Egret/" style="font-size: 10px;">Egret</a> <a href="/tags/cocos2d-js/" style="font-size: 15px;">cocos2d-js</a> <a href="/tags/createjs/" style="font-size: 10px;">createjs</a> <a href="/tags/css3/" style="font-size: 13.33px;">css3</a> <a href="/tags/fastClick/" style="font-size: 10px;">fastClick</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-ssh/" style="font-size: 10px;">git/ssh</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/seajs/" style="font-size: 11.67px;">seajs</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/代码片段/" style="font-size: 20px;">代码片段</a> <a href="/tags/前端规范/" style="font-size: 10px;">前端规范</a> <a href="/tags/工作/" style="font-size: 18.33px;">工作</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/网址收藏/" style="font-size: 16.67px;">网址收藏</a> <a href="/tags/行业/" style="font-size: 10px;">行业</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/遇到的问题及解决方案/" style="font-size: 15px;">遇到的问题及解决方案</a> <a href="/tags/问题记录/" style="font-size: 10px;">问题记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/07/使用cocos-creator开发中碰到的问题及解决方案/">使用cocos creator开发中碰到的问题及解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/把前端应用部署到GitHub/">把前端应用部署到GitHub</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/canvas-长按保存图片/">canvas 长按保存图片</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-微信小游戏排行榜/">cocoscreater_微信小游戏排行榜</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-触摸事件类型和事件对象/">cocoscreater_触摸事件类型和事件对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

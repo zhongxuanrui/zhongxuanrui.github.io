@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-闭包" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/闭包/" class="article-date">
+  <time datetime="2016-12-03T01:37:20.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/闭包/">闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、简要介绍"><a href="#一、简要介绍" class="headerlink" title="一、简要介绍"></a>一、简要介绍</h2><p>闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。即使你对闭包没概念，你可能已经在不知不觉中使用到了闭包。解释闭包的概念之前，我们先来看一个简单的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> name=<span class="string">'js closure'</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br><span class="line">&#125;</span><br><span class="line">getName();</span><br></pre></td></tr></table></figure></p>
+<p>这就其实已经是闭包了，setTimeout中的function是一个匿名函数，这个匿名函数里的name是geName()作用域中的变量，匿名函数里只有一个输出语句：console.log();</p>
+<h2 id="二、-闭包是什么"><a href="#二、-闭包是什么" class="headerlink" title="二、 闭包是什么"></a>二、 闭包是什么</h2><p>官方”的解释是：闭包是一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。相信很少有人能直接看懂这句话，因为他描述的太学术。其实这句话通俗的来说就是：JavaScript中所有的function都是一个闭包。不过一般来说，嵌套的function所产生的闭包更为强大，也是大部分时候我们所谓的“闭包”。看下面这段代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> i = <span class="number">0</span>; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123; alert(++i); &#125; </span><br><span class="line"> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = a();</span><br><span class="line">c();</span><br></pre></td></tr></table></figure></p>
+<p>这段代码有两个特点：<br>1、函数b嵌套在函数a内部；<br>2、函数a返回函数b。<br>引用关系如图：<br>1.jpg<br>    这样在执行完var c=a()后，变量c实际上是指向了函数b，再执行c()后就会弹出一个窗口显示i的值(第一次为1)。这段代码其实就创建了一个闭包，为什么？因为函数a外的变量c引用了函数a内的函数b，就是说：<br>    当函数a的内部函数b被函数a外的一个变量引用的时候，就创建了一个闭包。<br>    (由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。)<br>    让我们说的更透彻一些。所谓“闭包”，就是在构造函数体内定义另外的函数作为目标对象的方法函数，而这个对象的方法函数反过来引用外层函数体中的临时变量。这使得只要目标 对象在生存期内始终能保持其方法，就能间接保持原构造函数体当时用到的临时变量值。尽管最开始的构造函数调用已经结束，临时变量的名称也都消失了，但在目 标对象的方法内却始终能引用到该变量的值，而且该值只能通这种方法来访问。即使再次调用相同的构造函数，但只会生成新对象和方法，新的临时变量只是对应新的值，和上次那次调用的是各自独立的。</p>
+<h2 id="三、闭包有什么作用？"><a href="#三、闭包有什么作用？" class="headerlink" title="三、闭包有什么作用？"></a>三、闭包有什么作用？</h2><p>简而言之，闭包的作用就是在a执行完并返回后，闭包使得Javascript的垃圾回收机制GC不会收回a所占用的资源，因为a的内部函数b的执行需要依赖a中的变量。这是对闭包作用的非常直白的描述，不专业也不严谨，但大概意思就是这样，理解闭包需要循序渐进的过程。<br>    在上面的例子中，由于闭包的存在使得函数a返回后，a中的i始终存在，这样每次执行c()，i都是自加1后alert出i的值。<br>    那 么我们来想象另一种情况，如果a返回的不是函数b，情况就完全不同了。因为a执行完后，b没有被返回给a的外界，只是被a所引用，而此时a也只会被b引 用，因此函数a和b互相引用但又不被外界打扰(被外界引用)，函数a和b就会被GC回收</p>
+<h2 id="四、闭包内的微观世界"><a href="#四、闭包内的微观世界" class="headerlink" title="四、闭包内的微观世界"></a>四、闭包内的微观世界</h2><p>如果要更加深入的了解闭包以及函数a和嵌套函数b的关系，我们需要引入另外几个概念：函数的执行环境(excution context)、活动对象(call object)、作用域(scope)、作用域链(scope chain)。以函数a从定义到执行的过程为例阐述这几个概念。</p>
+<pre><code>1. 当定义函数a的时候，js解释器会将函数a的作用域链(scope chain)设置为定义a时a所在的“环境”，如果a是一个全局函数，则scope chain中只有window对象。
+2. 当执行函数a的时候，a会进入相应的执行环境(excution context)。
+3. 在创建执行环境的过程中，首先会为a添加一个scope属性，即a的作用域，其值就为第1步中的scope chain。即a.scope=a的作用域链。
+4. 然后执行环境会创建一个活动对象(call object)。活动对象也是一个拥有属性的对象，但它不具有原型而且不能通过JavaScript代码直接访问。创建完活动对象后，把活动对象添加到a的作用域链的最顶端。此时a的作用域链包含了两个对象：a的活动对象和window对象。
+5. 下一步是在活动对象上添加一个arguments属性，它保存着调用函数a时所传递的参数。
+6. 最后把所有函数a的形参和内部的函数b的引用也添加到a的活动对象上。在这一步中，完成了函数b的的定义，因此如同第3步，函数b的作用域链被设置为b所被定义的环境，即a的作用域。
+到此，整个函数a从定义到执行的步骤就完成了。此时a返回函数b的引用给c，又函数b的作用域链包含了对函数a的活动对象的引用，也就是说b可以访问到a中定义的所有变量和函数。函数b被c引用，函数b又依赖函数a，因此函数a在返回后不会被GC回收。
+当函数b执行的时候亦会像以上步骤一样。因此，执行时b的作用域链包含了3个对象：b的活动对象、a的活动对象和window对象，如下图所示：
+    2.jpg
+如图所示，当在函数b中访问一个变量的时候，搜索顺序是：
+1.先搜索自身的活动对象，如果存在则返回，如果不存在将继续搜索函数a的活动对象，依次查找，直到找到为止。
+2.如果函数b存在prototype原型对象，则在查找完自身的活动对象后先查找自身的原型对象，再继续查找。这就是Javascript中的变量查找机制。
+3.如果整个作用域链上都无法找到，则返回undefined。
+小结，本段中提到了两个重要的词语：函数的定义与执行。文中提到函数的作用域是在定义函数时候就已经确定，而不是在执行的时候确定（参看步骤1和3）。用一段代码来说明这个问题：
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> x; &#125;</span><br><span class="line">  <span class="keyword">return</span> g;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> h = f(<span class="number">1</span>);</span><br><span class="line">alert(h());</span><br></pre></td></tr></table></figure>
+<p>这段代码中变量h指向了f中的那个匿名函数(由g返回)。<br>假设函数h的作用域是在执行alert(h())确定的，那么此时h的作用域链是：h的活动对象-&gt;alert的活动对象-&gt;window对象。<br>假设函数h的作用域是在定义时确定的，就是说h指向的那个匿名函数在定义的时候就已经确定了作用域。那么在执行的时候，h的作用域链为：h的活动对象-&gt;f的活动对象-&gt;window对象。<br>如果第一种假设成立，那输出值就是undefined；如果第二种假设成立，输出值则为1。<br>运行结果证明了第2个假设是正确的，说明函数的作用域确实是在定义这个函数的时候就已经确定了。</p>
+<h2 id="五、闭包的应用场景"><a href="#五、闭包的应用场景" class="headerlink" title="五、闭包的应用场景"></a>五、闭包的应用场景</h2><p>保护函数内的变量安全。以最开始的例子为例，函数a中i只有函数b才能访问，而无法通过其他途径访问到，因此保护了i的安全性。<br>    在内存中维持一个变量。依然如前例，由于闭包，函数a中i的一直存在于内存中，因此每次执行c()，都会给i自加1。<br>    通过保护变量的安全实现JS私有属性和私有方法（不能被外部访问）<br>    私有属性和方法在Constructor外是无法被访问的function Constructor(…) {<br>        var that = this;<br>        var membername = value;<br>        function membername(…) {…}<br>    }<br>    以上3点是闭包最基本的应用场景，很多经典案例都源于此。<br>六、Javascript的垃圾回收机制<br>    在Javascript中，如果一个对象不再被引用，那么这个对象就会被GC回收。如果两个对象互相引用，而不再被第3者所引用，那么这两个互相引用的对象也会被回收。因为函数a被b引用，b又被a外的c引用，这就是为什么函数a执行后不会被回收的原因。<br>七、思考题<br>    来自大神阮一峰的博客<br>//题一<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line">　　<span class="keyword">var</span> object = &#123;</span><br><span class="line">　　　　name : <span class="string">"My Object"</span>,</span><br><span class="line">　　　　getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　　　<span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">　　　　　　&#125;;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;;</span><br><span class="line">　　alert(object.getNameFunc()());    <span class="comment">//The Window</span></span><br></pre></td></tr></table></figure></p>
+<p>//题二<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line">　　<span class="keyword">var</span> object = &#123;　　　　</span><br><span class="line">　　name : <span class="string">"My Object"</span>,</span><br><span class="line">　　　　getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;　　　　　　</span><br><span class="line">　　　　<span class="keyword">var</span> that = <span class="keyword">this</span>;　　　　　　</span><br><span class="line">　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;　　　　　　　　</span><br><span class="line">　　　　    <span class="keyword">return</span> that.name;　　　　　　</span><br><span class="line">　　　　    &#125;;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;;</span><br><span class="line">　　alert(object.getNameFunc()());      <span class="comment">//My Object</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/闭包/" data-id="cjozunvz70079osannzghqxmu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码片段/">代码片段</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-seajs路径问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/seajs路径问题/" class="article-date">
+  <time datetime="2016-12-03T01:36:50.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/seajs/">seajs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/seajs路径问题/">seajs路径问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>seajs模块路径解析</p>
+<p>最近在试着用seajs + grunt改造现有项目， 遇到的最大的问题就是seajs命名与调用， 简单总结一下。</p>
+<p>模块调用</p>
+<p>seajs中调用模块有两种方式，seajs.use(ID) 、 require(ID)。</p>
+<p>ID命名</p>
+<p>完整绝对路径 例如 “<a href="http://example.com/test/js/jquery/jquery.js&quot;" target="_blank" rel="noopener">http://example.com/test/js/jquery/jquery.js&quot;</a><br>以 “.” 开头 例如 “./home/main” “../main”<br>以 “/“ 开头 例如 “/js/home/“<br>普通命名 例如 “home/main”<br>模块路径解析</p>
+<p>替换alias<br>添加base前缀<br>可以在seajs.config()方法中设置ID别名和基础路径, 例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">    base:<span class="string">"js"</span>,</span><br><span class="line">    alias: &#123;</span><br><span class="line">        jquery: <span class="string">"/jquery/jquery"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>base添加规则</p>
+<p>完整的绝对路径 不会加base</p>
+<p>以 “.” 开头 会相对于当前（被调用的）模块解析地址。 如果不存在被调用的模块（如seajs.use() ）， 则会相对于当前页面解析地址。</p>
+<p>以 “/“ 开头 相对于当前页面的根目录 解析地址</p>
+<p>普通命名 直接加上base前缀</p>
+<p>base值</p>
+<p>base 默认值是 seajs所在目录</p>
+<p>seajs.config()中base的解析与ID命名解析规则相同</p>
+<p>例如:</p>
+<p><a href="http://example.com/test/js/sea/sea.js" target="_blank" rel="noopener">http://example.com/test/js/sea/sea.js</a></p>
+<p><a href="http://example.com/test/index.html" target="_blank" rel="noopener">http://example.com/test/index.html</a></p>
+<p>在index.html中调用了sea.js</p>
+<p>base的默认值为 “<a href="http://example.com/test/js/sea/&quot;" target="_blank" rel="noopener">http://example.com/test/js/sea/&quot;</a></p>
+<p>如果使用seajs.config()设置了base</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">    base: <span class="string">"home"</span>  <span class="comment">// base值为 "http://example.com/test/js/sea/home"&#125;);</span></span><br><span class="line"></span><br><span class="line">seajs.confg(&#123;</span><br><span class="line">    base: <span class="string">"./home"</span>  <span class="comment">// base值为 "http://example.com/test/home"&#125;);</span></span><br><span class="line"></span><br><span class="line">seajs.conifg(&#123;</span><br><span class="line">    base: <span class="string">"/home"</span>   <span class="comment">// base值为 "http://example.com/home"&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>seajs.config()中的base 与 seajs.use() 的ID一样， “.” 开头的ID 会相对于当前页面 解析地址（因为不存在被调用的模块）<br>完整的解析例子：</p>
+<p>有如下文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//example.com/test/js/sea/sea.js</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//example.com/test/js/home/main.js</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//example.com/test/js/home/tpl.js</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//example.com/test/index.html</span></span><br></pre></td></tr></table></figure></p>
+<p>index.html页面调用sea.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">    base: <span class="string">"./js"</span>        <span class="comment">// base为 "http://example.com/test/js"    </span></span><br><span class="line">    alias: &#123;        <span class="string">"jquery"</span>: <span class="string">"jquery/jquery"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);<span class="comment">// 调用 mian seajs.use("home/main");     // 解析后的路径为 "http://example.com/test/js/home/main.js"// 也可以这么写seajs.use("./js/home/main");    // 解析路径为 "http://example.com/test/js/home/main.js"main.js</span></span><br><span class="line"></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;    </span><br><span class="line">      <span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">"jquery"</span>);      <span class="comment">// "http://example.com/test/js/jquery/jquery.js"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 tpl</span></span><br><span class="line">    <span class="keyword">var</span> tpl = <span class="built_in">require</span>(<span class="string">"./tpl"</span>);     <span class="comment">// "http://example.com/test/js/home/tpl.js"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 也可以</span></span><br><span class="line">    <span class="keyword">var</span> tpl = <span class="built_in">require</span>(<span class="string">"home/tpl"</span>);  <span class="comment">// "http://example.com/test/js/home/tpl.js"&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>以上例子中的模块define() 都没有定义ID， 实际上项目中打包时会根据配置 自动为模块设定ID， 打包到同一个文件中， 相关问题以后有时间再总结。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/seajs路径问题/" data-id="cjozunvx0003gosanluempmb7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seajs/">seajs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于input输入框页面被放大的问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/关于input输入框页面被放大的问题/" class="article-date">
+  <time datetime="2016-12-03T01:36:38.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/关于input输入框页面被放大的问题/"> 关于input输入框页面被放大的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做的微信网站有一个关于input输入框页面放大的问题。比如登录页面刚打开时正常，但用户输入信息登录时，页面就会放大。解决这个问题，首先需要在头部加一个</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=720,inital-scale=1.0,user-scalable=no;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>再加一个如下的css样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span>,<span class="selector-tag">input</span><span class="selector-pseudo">:focus</span>,<span class="selector-tag">input</span><span class="selector-pseudo">:active</span>&#123;<span class="attribute">user-select</span>: text;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>问题就解决了，有类似问题的同学可以试试。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/关于input输入框页面被放大的问题/" data-id="cjozunvx9003zosanm9ymbsmm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-IScroll的使用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/IScroll的使用/" class="article-date">
+  <time datetime="2016-12-03T01:36:17.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/IScroll的使用/">IScroll的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"prizeInfoContainer"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"prizeInfoContent wrapper"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">div</span> &gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&lt;?php echo $this-&gt;SURL('/images/res/dialog/prizeContent.png') ?&gt;"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>prizeInfoContainer这个类不能overflow:hidden;  prizeInfoContent 这个类要overflow:hidden;  接着这个div下面要有一个空的div 用来做滑动的块。在里面就是内容区域了。</p>
+<p>var myscroll = new IScroll(“.wrapper”);//onload的时候<br>myscroll1.refresh();//点击弹窗的地方</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/IScroll的使用/" data-id="cjozunvv90006osancvb9bqsd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-fastClick" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/fastClick/" class="article-date">
+  <time datetime="2016-12-03T01:36:03.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/fastClick/"> fastClick</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>引入fastClick 框架<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;FastClick.attach(<span class="built_in">document</span>.body);&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用jq的on.(‘click’)或者$(‘dom’).click()  方法  可以  快300ms；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/fastClick/" data-id="cjozunvwe0024osanbsg4ndw7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fastClick/">fastClick</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于seajs" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/关于seajs/" class="article-date">
+  <time datetime="2016-12-03T01:35:50.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/seajs/">seajs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/关于seajs/"> 关于seajs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>提供简单、极致的模块化开发体验。<br>alias:<br>别名配置，配置后可在模块中使用require调用 require（’jqurey’);<br>定义alias–&gt;seajs.config({alias:{‘jquery’ : ‘jquery/jquery/1.10.1/jquery’}})<br>调用jQuery–&gt;define(function(require, exports, module){//引用jq     var $ = require(‘jquery’)});<br>paths:<br>设置路径，方便跨目录调用。通过灵活的设置path可以再不影响base的情况下制定到某个目录<br>定义paths–&gt;seajs.config({paths:{‘gallery’: ‘<a href="https://a.alipayojects.com/gallery&#39;},{&#39;alias&#39;:&#39;gallery/underscore&#39;}}" target="_blank" rel="noopener">https://a.alipayojects.com/gallery&#39;},{&#39;alias&#39;:&#39;gallery/underscore&#39;}}</a>)<br>调用  define(function(require, exporst, module){var _  = require(‘underscore’)})<br>vars:<br>    变量配置。有些场景下，模块路径在运行时才能确定，这时候可以用vars变量来配置。在模块中用{key}来表示变量。<br>定义vars–&gt; seajs.config({vars:{‘local’:’zh-cn’}})<br>调用  define(function(require, exports, module){var lang = require(‘./i18n/{local}.js’)})<br>function:<br>    用来在页面中加载一个或多个模块。<br>加载一个模块 seajs.use(‘./a’);<br>加载一个模块，在加载完成时，执行回调 seajs.use(‘./a’, function(a){a.dosomething()})<br>加载多个模块，在加载完成时，执行回调seajs.use([‘./a’,’./b’],function(a,b){a.dosomething();b.dosomething})<br>注意：seajs.use与DOM ready事件没有任何联系。如果某些操作要确保在DOM ready后执行，需要使用jquery等类库来保证<br>比如：seajs.use([‘jquery’, ‘./main’], function($, main){$.ready(function(){main.init()})})<br>seajs.data可以查看seajs所有配置以及一些内部变量</p>
+<p>关于路径<br>seajs除了相对与顶级标识之外，还可以使用普通路径来加载模块。就到当前页面的脚本分析<br>//sea.js的路径，即 base 路径，相对于当前页面</p>
+<script src="http://yslove.net/actjs/assets/sea-modules/seajs/2.1.1/sj.js"></script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">//配置Seajs</span></span><br><span class="line">seajs.config(&#123;</span><br><span class="line">    alias: &#123;</span><br><span class="line">        <span class="comment">//顶级标识，基于 base 路径</span></span><br><span class="line">        <span class="string">'actjs'</span>: <span class="string">'actjs/core/0.0.7/core.js'</span>,</span><br><span class="line">            <span class="comment">// =&gt; http://</span></span><br><span class="line">        <span class="string">'position'</span>: <span class="string">'actjs/util/0.0.2/position.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">seajs.config(&#123;</span><br><span class="line">    alias: &#123;</span><br><span class="line">        <span class="comment">//普通路径，相对于当前页面</span></span><br><span class="line">        <span class="string">'affix'</span>: <span class="string">'../../actjs/assets/widget/src/widget-affix.js'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="comment">//相对标识，相对于当前页面</span></span><br><span class="line">        <span class="string">'init'</span>: <span class="string">'./src/init.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>开始的时候会觉得Seajs的路径有点不习惯，由其是Base路径。切记Base路径就是sea.js的那个文件的上级路径，然后所有顶级标识，相对标识都是相对于这个Base来调整。</p>
+<p>摘自：<a href="http://yslove.net/seajs/#base" target="_blank" rel="noopener">http://yslove.net/seajs/#base</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/关于seajs/" data-id="cjozunvxc0044osanwoeobwmf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seajs/">seajs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Mac下Git的基础操作" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/02/Mac下Git的基础操作/" class="article-date">
+  <time datetime="2016-12-02T01:43:47.000Z" itemprop="datePublished">2016-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/github/">github</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/02/Mac下Git的基础操作/">Mac下Git的基础操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>目前最火的版本控制软件是Git了吧，今天简单梳理一下Mac下Git的基础操作~~</p>
+<p>一.什么是Git</p>
+<p>Git是一个分布式代码管理工具，用于敏捷的处理或大或小的项目，类似的工具还有svn。</p>
+<p>基于Git的快速的、免费的、稳定的在线代码托管平台有github，还有一些国内的，coding、csdn代码托管平台、京东代码托管平台等等。</p>
+<p>二.Git的基本使用</p>
+<p>1.注册一个git账号</p>
+<p>咱们以coding代码托管平台为例来简单介绍</p>
+<p>A.登陆coding网站<a href="https://coding.net/，注册coding账号，注册完后需登陆邮箱激活邮件；" target="_blank" rel="noopener">https://coding.net/，注册coding账号，注册完后需登陆邮箱激活邮件；</a></p>
+<p>B.登陆账号，创建新项目，项目分私有和公开的，公开的就是所有人只要访问你的git主页，就可以看到你的代码，私有的就是只有你能看到，或者你的授权了的用户可以看到，这里新建一个私有的项目。</p>
+<p>2.安装Git客户端</p>
+<p>Coding作为代码托管服务器，在服务器上已经创建好项目，工作中需要把项目下载到本地，然后去上传新增、或者修改代码等操作，需要在本地安装git客户端。</p>
+<p>安装Xcode，Xcode集成了Git，不过默认没有安装，你需要运行Xcode，选择菜单“Xcode”-&gt;“Preferences”，在弹出窗口中找到“Downloads”，选择“Command Line Tools”，点“Install”就可以完成安装了，直接使用git命令即可。</p>
+<p>3.常用命令</p>
+<p>克隆Git资源作为工作目录   git clone<br>         使用 git clone 拷贝一个 Git 仓库到本地，让自己能够查看该项目，或者进行修改。</p>
+<pre><code>如果你需要与他人合作一个项目，或者想要复制一个项目，看看代码，你就可以克隆那个项目。 执行命令：git clone [url]
+</code></pre><p>　　　 [url]为你想要复制的项目地址，在coding项目的左下角复制粘贴，注意是git结尾~~</p>
+<p>　　　 git clone <a href="https://git.coding.net/shimh/homework.git" target="_blank" rel="noopener">https://git.coding.net/shimh/homework.git</a></p>
+<p>将添加或者修改的文件/代码添加到本地项目目录   git add <filename><br>         git add task.rtf</filename></p>
+<pre><code>git add * 
+
+git add .
+</code></pre><p>提交修改后的文件/代码到本地仓库   git commit -m  “备注，描述”　<br>从本地仓库推送到远程库   git push<br>        git push origin master   上传本地当前分支代码到master分支 </p>
+<p>从远程库下拉更新   git pull<br>     其他常用：</p>
+<p>查看当前目录的文件状态  git status<br>查看分支   git branch<br>查看尚未暂存的文件更新了哪些部分   git diff<br>查看历史记录   git log<br>删除文件   git rm<br>长期存储密码   git config -global credential.helper store<br>   因为git默认是不储存密码的，不执行这条命令的话每次更新代码，或者提交代码都需要输入密码<br>列出已存在的远程分支   git remote -v</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/02/Mac下Git的基础操作/" data-id="cjozunvvn000oosanry9purh6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-script-type-text-html-模板" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/02/script-type-text-html-模板/" class="article-date">
+  <time datetime="2016-12-02T01:43:26.000Z" itemprop="datePublished">2016-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/02/script-type-text-html-模板/">&lt;script type=text/html&gt;模板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">"commentTemplate"</span> <span class="attr">type</span>=<span class="string">"text/html"</span>&gt;</span><span class="undefined"> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span> </span></span><br><span class="line"><span class="javascript">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"photo"</span>&gt; </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"[UserImg]"</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>[UserName]：<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span>[CreateDate]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span></span><br><span class="line"><span class="javascript">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"clear"</span>&gt; </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span> </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt; </span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\[([^\\[\\]]*?)\\]"</span>, <span class="string">'igm'</span>); <span class="comment">//i g m是指分别用于指定区分大小写的匹配、全局匹配和多行匹配。 </span></span><br><span class="line">$(<span class="string">"#addFun"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"><span class="keyword">var</span> html = <span class="built_in">document</span>.getElementById(<span class="string">"commentTemplate"</span>).innerHTML; </span><br><span class="line"><span class="keyword">var</span> source = html.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params">node, key</span>) </span>&#123; <span class="keyword">return</span> &#123; <span class="string">'UserImg'</span>: <span class="string">'1'</span>, <span class="string">'UserName'</span>: <span class="string">'zhang'</span>, <span class="string">'CreateDate'</span>: <span class="string">'2011-1-1'</span>&#125;[key]; &#125;); </span><br><span class="line">$(<span class="string">"#comment_ul_2"</span>).append(source); </span><br><span class="line">&#125;); </span><br><span class="line"><span class="keyword">var</span> zzl = <span class="string">"name:[name]"</span>; </span><br><span class="line">zzl = zzl.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params">node, key</span>) </span>&#123; <span class="keyword">return</span> &#123; <span class="string">'name'</span>: <span class="string">'占占'</span>&#125;[key]; &#125;); </span><br><span class="line">alert(zzl); </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/02/script-type-text-html-模板/" data-id="cjozunvww0039osansab9qyh8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码片段/">代码片段</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-audio在手机端问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/02/audio在手机端问题/" class="article-date">
+  <time datetime="2016-12-02T01:42:59.000Z" itemprop="datePublished">2016-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/02/audio在手机端问题/">audio在手机端问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.原因：audio动态改变currentTime 在 ios7下会报异常。<br>  解决：这个属必必须要在媒体加载后才能设置。可以通过在 loadedmetadata  事件的回调中处理。</p>
+<p>2.原因 : 安卓机下面audio标签的src指定路径之后，播放不了。（ios正常）。<br>   解决：播放的时候重新赋值src。</p>
+<p>3.原因： animation动画在微信下面直接闪退（ios 9.2）<br>   解决：后台退出微信，再进就可以了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/02/audio在手机端问题/" data-id="cjozunvvl000mosaniyhvod4t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于chrome" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/02/关于chrome/" class="article-date">
+  <time datetime="2016-12-02T01:42:41.000Z" itemprop="datePublished">2016-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/浏览器/">浏览器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/02/关于chrome/">关于chrome</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 打开Chrome浏览器</span><br><span class="line">2. JavaScript控制台</span><br><span class="line">3. 在JavaScript控制台（右下角）设置（齿轮图标）-&gt; 常用 -&gt; 禁用浏览器缓存</span><br><span class="line">4. 当进行好上述设置之后，只要JavaScript控制台处于打开状态，Chrome就不会从缓存中读取任何内容</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Chrome V35 版本中的开发者工具分为 8 个大模块，每个模块及其主要功能为：</span><br><span class="line">Element 标签页： 用于查看和编辑当前页面中的 HTML 和 CSS 元素。</span><br><span class="line">Network 标签页：用于查看 HTTP 请求的详细信息，如请求头、响应头及返回内容等。</span><br><span class="line">Source 标签页：用于查看和调试当前页面所加载的脚本的源文件。</span><br><span class="line">TimeLine 标签页： 用于查看脚本的执行时间、页面元素渲染时间等信息。</span><br><span class="line">Profiles 标签页：用于查看 CPU 执行时间与内存占用等信息。</span><br><span class="line">Resource 标签页：用于查看当前页面所请求的资源文件，如 HTML，CSS 样式文件等。</span><br><span class="line">Audits 标签页：用于优化前端页面，加速网页加载速度等。</span><br><span class="line">Console 标签页：用于显示脚本中所输出的调试信息，或运行测试脚本等。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/02/关于chrome/" data-id="cjozunvx5003rosanvy8m85el" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chrome浏览器/">Chrome浏览器</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Egret/">Egret</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos2d-js/">cocos2d-js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos-creator/">cocos_creator</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocoscreater/">cocoscreater</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/createjs/">createjs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/seajs/">seajs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码片段/">代码片段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/杂谈/">杂谈</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端规范/">前端规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作生活/">工作生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网址收藏/">网址收藏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome浏览器/">Chrome浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Egret/">Egret</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-js/">cocos2d-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/createjs/">createjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastClick/">fastClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-ssh/">git/ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端规范/">前端规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网址收藏/">网址收藏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行业/">行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Chrome浏览器/" style="font-size: 10px;">Chrome浏览器</a> <a href="/tags/Egret/" style="font-size: 10px;">Egret</a> <a href="/tags/cocos2d-js/" style="font-size: 15px;">cocos2d-js</a> <a href="/tags/createjs/" style="font-size: 10px;">createjs</a> <a href="/tags/css3/" style="font-size: 13.33px;">css3</a> <a href="/tags/fastClick/" style="font-size: 10px;">fastClick</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-ssh/" style="font-size: 10px;">git/ssh</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/seajs/" style="font-size: 11.67px;">seajs</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/代码片段/" style="font-size: 20px;">代码片段</a> <a href="/tags/前端规范/" style="font-size: 10px;">前端规范</a> <a href="/tags/工作/" style="font-size: 18.33px;">工作</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/网址收藏/" style="font-size: 16.67px;">网址收藏</a> <a href="/tags/行业/" style="font-size: 10px;">行业</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/遇到的问题及解决方案/" style="font-size: 15px;">遇到的问题及解决方案</a> <a href="/tags/问题记录/" style="font-size: 10px;">问题记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/07/使用cocos-creator开发中碰到的问题及解决方案/">使用cocos creator开发中碰到的问题及解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/把前端应用部署到GitHub/">把前端应用部署到GitHub</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/canvas-长按保存图片/">canvas 长按保存图片</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-微信小游戏排行榜/">cocoscreater_微信小游戏排行榜</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-触摸事件类型和事件对象/">cocoscreater_触摸事件类型和事件对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

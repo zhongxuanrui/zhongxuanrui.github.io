@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Css3 Transfrom | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSS 变形(Transformation)transform rotate          Rotate(旋转)允许你通过传递一个度数值来转动一个对象。scale           Scale是一个缩放功能，可以让任一元素变的更大。它使用正数和负数以及小数作为参数。translate     Translate就是基于X和Y 坐标重新定位元素skew            顾名思义，skew">
+<meta name="keywords" content="css3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Css3 Transfrom">
+<meta property="og:url" content="http://yoursite.com/2016/12/03/Css3-Transfrom/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CSS 变形(Transformation)transform rotate          Rotate(旋转)允许你通过传递一个度数值来转动一个对象。scale           Scale是一个缩放功能，可以让任一元素变的更大。它使用正数和负数以及小数作为参数。translate     Translate就是基于X和Y 坐标重新定位元素skew            顾名思义，skew">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-26T01:42:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Css3 Transfrom">
+<meta name="twitter:description" content="CSS 变形(Transformation)transform rotate          Rotate(旋转)允许你通过传递一个度数值来转动一个对象。scale           Scale是一个缩放功能，可以让任一元素变的更大。它使用正数和负数以及小数作为参数。translate     Translate就是基于X和Y 坐标重新定位元素skew            顾名思义，skew">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Css3-Transfrom" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/Css3-Transfrom/" class="article-date">
+  <time datetime="2016-12-03T01:40:35.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Css3 Transfrom
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS 变形(Transformation)<br>transform</p>
+<p><quote><br>rotate          Rotate(旋转)允许你通过传递一个度数值来转动一个对象。<br>scale           Scale是一个缩放功能，可以让任一元素变的更大。它使用正数和负数以及小数作为参数。<br>translate     Translate就是基于X和Y 坐标重新定位元素<br>skew            顾名思义，skew就是要将对象倾斜，参数是度数<br>matrix           transform支持矩阵变换，就是基于X和Y 坐标重新定位元素<br></quote><br>Rotate(旋转)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(-90deg);</span><br><span class="line">  <span class="attribute">-moz-transform</span>:<span class="built_in">rotate</span>(-90deg);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">rotate</span>(-90deg);</span><br><span class="line">  <span class="attribute">filter</span>:progid:DXImageTransform.Microsoft.<span class="built_in">BasicImage</span>(rotation=3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>请注意在IE8中(非标准模式)它需要你写成”-ms-filter”而不是”filter”。<br>scale(缩放)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123; </span><br><span class="line"> <span class="comment">/* nav的宽度将是双倍，并且水平翻转，但是高度保持不变 */</span></span><br><span class="line">   <span class="attribute">-webkit-transform</span>:<span class="built_in">scale</span>(-2, 1);</span><br><span class="line">   <span class="attribute">-moz-transform</span>:<span class="built_in">scale</span>(-2, 1);</span><br><span class="line">   <span class="attribute">-o-transform</span>:<span class="built_in">scale</span>(-2, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>负数值并不会缩小元素，而是翻转它(比如，文字被反转)然后相应的缩放它。<br>translate(重新定位)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line"> <span class="comment">/* 这会将nav元素向左移动10像素并向下移动20像素 */</span></span><br><span class="line"> <span class="attribute">-moz-transform</span>:<span class="built_in">translate</span>(10px, 20px);</span><br><span class="line"> <span class="attribute">-webkit-transform</span>:<span class="built_in">translate</span>(10px, 20px);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">translate</span>(10px, 20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Skew(倾斜)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line"> <span class="comment">/* 这会将nav元素向左移动10像素并向下移动30像素 */</span></span><br><span class="line"> <span class="attribute">-moz-transform</span>:<span class="built_in">skew</span>(30deg, -10deg);</span><br><span class="line"> <span class="attribute">-webkit-transform</span>:<span class="built_in">skew</span>(30deg, -10deg);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">skew</span>(30deg, -10deg);</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"><span class="selector-tag">Matrix</span>(矩阵变换)</span><br><span class="line">链式变形</span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line"> <span class="attribute">-moz-transform</span>:<span class="built_in">translate</span>(10, 25) <span class="built_in">rotate</span>(90deg) <span class="built_in">scale</span>(2, 1);</span><br><span class="line"> <span class="attribute">-webkit-transform</span>:<span class="built_in">translate</span>(10, 25) <span class="built_in">rotate</span>(90deg) <span class="built_in">scale</span>(2, 1);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">translate</span>(10, 25) <span class="built_in">rotate</span>(90deg) <span class="built_in">scale</span>(2, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>transform-origin(用来指定transform的起点)<br>transition(变换)<br>变换通过改变不同元素状态之间的一个时间段内的样式来起作用</p>
+<p><quote><br>动态伪类     起作用的元素        描述<br>:link             只有链接     未访问的链接<br>:visited        只有链接     访问过的链接<br>:hover          所有元素     鼠标经过元素<br>:active         所有元素      鼠标点击元素<br>:focus          所有可被选中的元素     元素被选中<br>None           所有元素             所有元素的默认状态<br></quote><br>transition-property     指定变换的CSS属性名称，比如，上面的例子中，将转换应用于background-color属性。<br>transition-duration       定义变换花费的时间（从旧属性换到新属性花费的时间）<br>transition-timing-function       可以理解为过度效果。指定变换过程中的中间值。可以用cubic-bezier指定。当然有几个常用的内置值：ease | linear | ease-in | ease-out | ease-in-out。<br>名称                                           如何工作<br>cubic-bezier(x1, y1, x2, y2)      X 和 Y 值在0到1之间，以定义用于Time function的贝塞尔曲线的形状。<br>linear                                         均速<br>ease                                          逐渐慢下来<br>ease-in                                     加速(渐入)<br>ease-out                                   减速(淡出)<br>ease-in-out                              加速然后减速<br>transition-delay                        这个比较容易理解，就是变换延迟的时间。时间可以为正整数、负整数和零，非零的时候必须设置单位是s(秒)或者ms(毫秒)，为负数的时候，变换的动作会从该时间点开始显示，之前的动作被截断。<br>多重变换可以在同一个变换属性定义中用逗号隔开。如果在同一个CSS规则中添加多个变换实例，那么最后的那个将会覆盖前面的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line"> <span class="attribute">color</span>: red;</span><br><span class="line"> <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(235,235,185);</span><br><span class="line"> <span class="attribute">-webkit-transition</span>: color .<span class="number">25s</span> linear;</span><br><span class="line"> <span class="attribute">transition</span>: color .<span class="number">25s</span> linear;</span><br><span class="line"> <span class="attribute">-webkit-transition</span>: background-color .<span class="number">15s</span> linear .<span class="number">1</span>;</span><br><span class="line"> <span class="attribute">transition</span>: background-color .<span class="number">15s</span> linear .<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以赋予变换的CSS属性列表，附带转变的对象，高亮了一些比较有用的属性</p>
+<p><quote><br>CSS属性                            改变的对象<br>background-color            色彩<br>background-image          只是渐变<br>background-position       百分比，长度<br>border-bottom-color       色彩<br>border-bottom-width      长度<br>border-color                     色彩<br>border-left-color              色彩<br>border-left-width             长度<br>border-right-color            色彩<br>border-right-width           长度<br>border-spacing                长度<br>border-top-color              色彩<br>border-top-width             长度<br>border-width                    长度<br>bottom                              百分比，长度<br>color                                  色彩<br>crop                                   百分比<br>font-size                            百分比，长度<br>font-weight                        数字<br>grid-*                                 数量<br>height                                百分比，长度<br>left                                     百分比，长度<br>letter-spacing                   长度<br>line-height                         百分比，长度，数字<br>margin-bottom                  长度<br>margin-left                         长度<br>margin-right                       长度<br>margin-top                         长度<br>max-height                        百分比，长度<br>max-width                          百分比，长度<br>min-height                         百分比，长度<br>min-width                          百分比，长度<br>opacity                              数字<br>outline-color                     色彩<br>outline-offset                    整数<br>outline-width                    长度<br>padding-bottom               长度<br>padding-left                     长度<br>padding-right                   长度<br>padding-top                     长度<br>right                                  百分比，长度<br>text-indent                        百分比，长度<br>text-shadow                      阴影<br>top                                     百分比，长度<br>vertical-align                     百分比，长度，关键词<br>visibility                             可见性<br>width                                 百分比，长度<br>word-spacing                   百分比，长度<br>z-index                              正整数<br>zoom                                  数字<br></quote><br>全部变换<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">*<span class="selector-pseudo">:link</span>, *<span class="selector-pseudo">:visited</span>, *<span class="selector-pseudo">:hover</span>, *<span class="selector-pseudo">:active</span>, *<span class="selector-pseudo">:focus</span> &#123;</span><br><span class="line"><span class="attribute">-webkit-transition</span>:</span><br><span class="line"> color .<span class="number">25s</span> linear,</span><br><span class="line"> background-color .<span class="number">25s</span> linear,</span><br><span class="line"> border-color .<span class="number">25s</span> linear;</span><br><span class="line"><span class="attribute">transition</span>:</span><br><span class="line"> color .<span class="number">25s</span> linear,</span><br><span class="line"> background-color .<span class="number">25s</span> linear,</span><br><span class="line"> border-color .<span class="number">25s</span> linear;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"><span class="selector-tag">Animation</span>(动画)</span><br><span class="line">&lt;<span class="selector-tag">quote</span>&gt;</span><br><span class="line"><span class="selector-tag">animation-name</span>动画的名称。</span><br><span class="line"><span class="selector-tag">animation-duration</span>定义动画播放一次需要的时间。默认为0；</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>定义动画播放的方式，参数设置类似<span class="selector-tag">transition-timing-function</span></span><br><span class="line"><span class="selector-tag">animation-delay</span>定义动画开始的时间</span><br><span class="line"><span class="selector-tag">animation-iteration-count</span>定义循环的次数，<span class="selector-tag">infinite</span>即为无限次。默认是1。</span><br><span class="line"><span class="selector-tag">-webkit-animation-direction</span>动画播放的方向，两个值，默认为<span class="selector-tag">normal</span>，这个时候动画的每次循环都向前播放。另一个值是<span class="selector-tag">alternate</span>，则第偶数次向前播放，第奇数次向反方向播放。</span><br><span class="line">&lt;/quote&gt;</span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-id">#rotate</span> &#123;</span><br><span class="line"> <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line"> <span class="attribute">width</span>:<span class="number">600px</span>;</span><br><span class="line"> <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line"> <span class="comment">/* 确保我们是在一个 3-D 空间 */</span></span><br><span class="line"> <span class="attribute">-webkit-transform-style</span>:preserve-<span class="number">3</span>d;</span><br><span class="line"> <span class="comment">/*让整个行使用x-轴旋转、7秒中的动画、无限次播放以及线性 */</span></span><br><span class="line"> <span class="attribute">-webkit-animation-name</span>:x-spin;</span><br><span class="line"> <span class="attribute">-webkit-animation-duration</span>:<span class="number">7s</span>;</span><br><span class="line"> <span class="attribute">-webkit-animation-iteration-count</span>:infinite;</span><br><span class="line"> <span class="attribute">-webkit-animation-timing-function</span>:linear;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>/<em> 定义要调用的动画 </em>/<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> @-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> x-spin &#123;</span><br><span class="line"> 0% &#123; <span class="attribute">-webkit-transform</span>:<span class="built_in">rotateX</span>(0deg); &#125;</span><br><span class="line"> 50% &#123; <span class="attribute">-webkit-transform</span>:<span class="built_in">rotateX</span>(180deg); &#125;</span><br><span class="line"> 100% &#123; <span class="attribute">-webkit-transform</span>:<span class="built_in">rotateX</span>(360deg); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/Css3-Transfrom/" data-id="cjozunvux0000osan88muv93q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/03/JS-数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JS 数据类型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/03/读JQuery攻略笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">读JQuery攻略笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Egret/">Egret</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos2d-js/">cocos2d-js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos-creator/">cocos_creator</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocoscreater/">cocoscreater</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/createjs/">createjs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/seajs/">seajs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码片段/">代码片段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/杂谈/">杂谈</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端规范/">前端规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作生活/">工作生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网址收藏/">网址收藏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome浏览器/">Chrome浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Egret/">Egret</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-js/">cocos2d-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/createjs/">createjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastClick/">fastClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-ssh/">git/ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端规范/">前端规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网址收藏/">网址收藏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行业/">行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Chrome浏览器/" style="font-size: 10px;">Chrome浏览器</a> <a href="/tags/Egret/" style="font-size: 10px;">Egret</a> <a href="/tags/cocos2d-js/" style="font-size: 15px;">cocos2d-js</a> <a href="/tags/createjs/" style="font-size: 10px;">createjs</a> <a href="/tags/css3/" style="font-size: 13.33px;">css3</a> <a href="/tags/fastClick/" style="font-size: 10px;">fastClick</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-ssh/" style="font-size: 10px;">git/ssh</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/seajs/" style="font-size: 11.67px;">seajs</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/代码片段/" style="font-size: 20px;">代码片段</a> <a href="/tags/前端规范/" style="font-size: 10px;">前端规范</a> <a href="/tags/工作/" style="font-size: 18.33px;">工作</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/网址收藏/" style="font-size: 16.67px;">网址收藏</a> <a href="/tags/行业/" style="font-size: 10px;">行业</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/遇到的问题及解决方案/" style="font-size: 15px;">遇到的问题及解决方案</a> <a href="/tags/问题记录/" style="font-size: 10px;">问题记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/07/使用cocos-creator开发中碰到的问题及解决方案/">使用cocos creator开发中碰到的问题及解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/把前端应用部署到GitHub/">把前端应用部署到GitHub</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/canvas-长按保存图片/">canvas 长按保存图片</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-微信小游戏排行榜/">cocoscreater_微信小游戏排行榜</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-触摸事件类型和事件对象/">cocoscreater_触摸事件类型和事件对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

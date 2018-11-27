@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-懒加载" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/09/懒加载/" class="article-date">
+  <time datetime="2016-12-09T01:35:04.000Z" itemprop="datePublished">2016-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/09/懒加载/"> 懒加载</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>html代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.dis_none</span>&#123;</span></span><br><span class="line"><span class="undefined">       display : none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">'page1'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">'./img.png'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">'./img.png'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">'./img.png'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">'page2 dis_none'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">'./img.png'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">'./img.png'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">'./img.png'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>javascript 代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lazyLoad=<span class="function"><span class="keyword">function</span>(<span class="params">obj,fun</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> load = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> loadThis=<span class="keyword">this</span>;</span><br><span class="line">     <span class="keyword">this</span>.imgArr=[];</span><br><span class="line">     <span class="keyword">this</span>.num=<span class="number">0</span>;</span><br><span class="line">     $(obj+<span class="string">" img"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>($(<span class="keyword">this</span>).attr(<span class="string">"data-src"</span>))&#123;</span><br><span class="line">             loadThis.imgArr[loadThis.imgArr.length]=$(<span class="keyword">this</span>).attr(<span class="string">"data-src"</span>);</span><br><span class="line">             $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>,loadThis.imgArr[loadThis.imgArr.length<span class="number">-1</span>]);</span><br><span class="line">             $(<span class="keyword">this</span>).attr(<span class="string">"data-src"</span>,<span class="string">""</span>);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">     <span class="keyword">if</span>(<span class="keyword">typeof</span> fun==<span class="string">"function"</span>)&#123;</span><br><span class="line">         <span class="keyword">this</span>.callBack(fun)</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  load.prototype.callBack=<span class="function"><span class="keyword">function</span>(<span class="params">fun</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> loadThis=<span class="keyword">this</span>,len = loadThis.imgArr.length<span class="number">-1</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="keyword">this</span>.imgArr.length;i++)&#123;</span><br><span class="line">          <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">          img.src = <span class="keyword">this</span>.imgArr[i];</span><br><span class="line">          img.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              <span class="keyword">if</span>(loadThis.num&lt;len)&#123;</span><br><span class="line">                  loadThis.num++;</span><br><span class="line">              &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                  fun()</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          img.onerror=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              <span class="keyword">if</span>(loadThis.num&lt;len)&#123;</span><br><span class="line">                  loadThis.num++;</span><br><span class="line">              &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                  fun()</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> load(obj,fun)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>ex:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lazyLoad(<span class="string">'.page1'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  lazyLoad(<span class="string">'.page2'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'.page1'</span>).addClass(<span class="string">'dis_none'</span>);</span><br><span class="line">    $(<span class="string">'.page2'</span>).removeClass(<span class="string">'dis_none'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>目前版本 依赖zepto库。迟点更新无依赖版本。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/09/懒加载/" data-id="cjozunvxo004vosan68alid29" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码片段/">代码片段</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS-数据类型" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/JS-数据类型/" class="article-date">
+  <time datetime="2016-12-03T01:40:53.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/JS-数据类型/">JS 数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 中的数据类型：简单数据类型 undefined, null, boolean, number和string 五种，复杂数据类型 object；通过typeof操作符来识别</p>
+<quote><br>    1. undefined:   只有一个值的数据类型，值undefined，在使用var声明变量但未对其加以初始化时，这个变量的值就是undefined。注意：typeof(undefined) 返回也是 undefined。可以将undefined赋值给任何变量或属性，但并不意味了清除了该变量，反而会因此多了一个属性。<br><br>    2. null:只有一个值的数据类型，这个特殊的值是null。从逻辑角度来看，null值表示一个空对象指针。注意：typeof(null)返回object，但null并非object，具有null值的变量也并非object。<br><br>    3. boolean: 该类型只有两个字面值：true和false。这两个值与数字值不是一回事，因此true不一定等于1，而false也不一定等于0。<br><br>    4. number: 这种类型用来表示整数和浮点数值，还有一种特殊的数值，即NaN。 注意：typeof(NaN)和typeof(Infinity)都返回number 。NaN参与任何数值计算的结构都是NaN，而且 NaN != NaN 。Infinity / Infinity = NaN 。<br><br>    5. string:用于表示由零或多个16位Unicode字符组成的字符序列，即字符串。可以由单引号(‘)或双引号(“)表示。<br><br>    6. object:对象其实就是一组数据和功能的集合。对象可以通过执行new操作符后跟要创建的对象类型的名称来创建。创建Object类型的实例并为其添加属性和（或）方法，就可以创建自定义对象<br></quote>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/JS-数据类型/" data-id="cjozunvvf000fosanlkaxkv1b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Css3-Transfrom" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/Css3-Transfrom/" class="article-date">
+  <time datetime="2016-12-03T01:40:35.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/Css3-Transfrom/">Css3 Transfrom</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS 变形(Transformation)<br>transform</p>
+<p><quote><br>rotate          Rotate(旋转)允许你通过传递一个度数值来转动一个对象。<br>scale           Scale是一个缩放功能，可以让任一元素变的更大。它使用正数和负数以及小数作为参数。<br>translate     Translate就是基于X和Y 坐标重新定位元素<br>skew            顾名思义，skew就是要将对象倾斜，参数是度数<br>matrix           transform支持矩阵变换，就是基于X和Y 坐标重新定位元素<br></quote><br>Rotate(旋转)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(-90deg);</span><br><span class="line">  <span class="attribute">-moz-transform</span>:<span class="built_in">rotate</span>(-90deg);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">rotate</span>(-90deg);</span><br><span class="line">  <span class="attribute">filter</span>:progid:DXImageTransform.Microsoft.<span class="built_in">BasicImage</span>(rotation=3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>请注意在IE8中(非标准模式)它需要你写成”-ms-filter”而不是”filter”。<br>scale(缩放)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123; </span><br><span class="line"> <span class="comment">/* nav的宽度将是双倍，并且水平翻转，但是高度保持不变 */</span></span><br><span class="line">   <span class="attribute">-webkit-transform</span>:<span class="built_in">scale</span>(-2, 1);</span><br><span class="line">   <span class="attribute">-moz-transform</span>:<span class="built_in">scale</span>(-2, 1);</span><br><span class="line">   <span class="attribute">-o-transform</span>:<span class="built_in">scale</span>(-2, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>负数值并不会缩小元素，而是翻转它(比如，文字被反转)然后相应的缩放它。<br>translate(重新定位)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line"> <span class="comment">/* 这会将nav元素向左移动10像素并向下移动20像素 */</span></span><br><span class="line"> <span class="attribute">-moz-transform</span>:<span class="built_in">translate</span>(10px, 20px);</span><br><span class="line"> <span class="attribute">-webkit-transform</span>:<span class="built_in">translate</span>(10px, 20px);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">translate</span>(10px, 20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Skew(倾斜)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line"> <span class="comment">/* 这会将nav元素向左移动10像素并向下移动30像素 */</span></span><br><span class="line"> <span class="attribute">-moz-transform</span>:<span class="built_in">skew</span>(30deg, -10deg);</span><br><span class="line"> <span class="attribute">-webkit-transform</span>:<span class="built_in">skew</span>(30deg, -10deg);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">skew</span>(30deg, -10deg);</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"><span class="selector-tag">Matrix</span>(矩阵变换)</span><br><span class="line">链式变形</span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line"> <span class="attribute">-moz-transform</span>:<span class="built_in">translate</span>(10, 25) <span class="built_in">rotate</span>(90deg) <span class="built_in">scale</span>(2, 1);</span><br><span class="line"> <span class="attribute">-webkit-transform</span>:<span class="built_in">translate</span>(10, 25) <span class="built_in">rotate</span>(90deg) <span class="built_in">scale</span>(2, 1);</span><br><span class="line"> <span class="attribute">-o-transform</span>:<span class="built_in">translate</span>(10, 25) <span class="built_in">rotate</span>(90deg) <span class="built_in">scale</span>(2, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>transform-origin(用来指定transform的起点)<br>transition(变换)<br>变换通过改变不同元素状态之间的一个时间段内的样式来起作用</p>
+<p><quote><br>动态伪类     起作用的元素        描述<br>:link             只有链接     未访问的链接<br>:visited        只有链接     访问过的链接<br>:hover          所有元素     鼠标经过元素<br>:active         所有元素      鼠标点击元素<br>:focus          所有可被选中的元素     元素被选中<br>None           所有元素             所有元素的默认状态<br></quote><br>transition-property     指定变换的CSS属性名称，比如，上面的例子中，将转换应用于background-color属性。<br>transition-duration       定义变换花费的时间（从旧属性换到新属性花费的时间）<br>transition-timing-function       可以理解为过度效果。指定变换过程中的中间值。可以用cubic-bezier指定。当然有几个常用的内置值：ease | linear | ease-in | ease-out | ease-in-out。<br>名称                                           如何工作<br>cubic-bezier(x1, y1, x2, y2)      X 和 Y 值在0到1之间，以定义用于Time function的贝塞尔曲线的形状。<br>linear                                         均速<br>ease                                          逐渐慢下来<br>ease-in                                     加速(渐入)<br>ease-out                                   减速(淡出)<br>ease-in-out                              加速然后减速<br>transition-delay                        这个比较容易理解，就是变换延迟的时间。时间可以为正整数、负整数和零，非零的时候必须设置单位是s(秒)或者ms(毫秒)，为负数的时候，变换的动作会从该时间点开始显示，之前的动作被截断。<br>多重变换可以在同一个变换属性定义中用逗号隔开。如果在同一个CSS规则中添加多个变换实例，那么最后的那个将会覆盖前面的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line"> <span class="attribute">color</span>: red;</span><br><span class="line"> <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(235,235,185);</span><br><span class="line"> <span class="attribute">-webkit-transition</span>: color .<span class="number">25s</span> linear;</span><br><span class="line"> <span class="attribute">transition</span>: color .<span class="number">25s</span> linear;</span><br><span class="line"> <span class="attribute">-webkit-transition</span>: background-color .<span class="number">15s</span> linear .<span class="number">1</span>;</span><br><span class="line"> <span class="attribute">transition</span>: background-color .<span class="number">15s</span> linear .<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以赋予变换的CSS属性列表，附带转变的对象，高亮了一些比较有用的属性</p>
+<p><quote><br>CSS属性                            改变的对象<br>background-color            色彩<br>background-image          只是渐变<br>background-position       百分比，长度<br>border-bottom-color       色彩<br>border-bottom-width      长度<br>border-color                     色彩<br>border-left-color              色彩<br>border-left-width             长度<br>border-right-color            色彩<br>border-right-width           长度<br>border-spacing                长度<br>border-top-color              色彩<br>border-top-width             长度<br>border-width                    长度<br>bottom                              百分比，长度<br>color                                  色彩<br>crop                                   百分比<br>font-size                            百分比，长度<br>font-weight                        数字<br>grid-*                                 数量<br>height                                百分比，长度<br>left                                     百分比，长度<br>letter-spacing                   长度<br>line-height                         百分比，长度，数字<br>margin-bottom                  长度<br>margin-left                         长度<br>margin-right                       长度<br>margin-top                         长度<br>max-height                        百分比，长度<br>max-width                          百分比，长度<br>min-height                         百分比，长度<br>min-width                          百分比，长度<br>opacity                              数字<br>outline-color                     色彩<br>outline-offset                    整数<br>outline-width                    长度<br>padding-bottom               长度<br>padding-left                     长度<br>padding-right                   长度<br>padding-top                     长度<br>right                                  百分比，长度<br>text-indent                        百分比，长度<br>text-shadow                      阴影<br>top                                     百分比，长度<br>vertical-align                     百分比，长度，关键词<br>visibility                             可见性<br>width                                 百分比，长度<br>word-spacing                   百分比，长度<br>z-index                              正整数<br>zoom                                  数字<br></quote><br>全部变换<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">*<span class="selector-pseudo">:link</span>, *<span class="selector-pseudo">:visited</span>, *<span class="selector-pseudo">:hover</span>, *<span class="selector-pseudo">:active</span>, *<span class="selector-pseudo">:focus</span> &#123;</span><br><span class="line"><span class="attribute">-webkit-transition</span>:</span><br><span class="line"> color .<span class="number">25s</span> linear,</span><br><span class="line"> background-color .<span class="number">25s</span> linear,</span><br><span class="line"> border-color .<span class="number">25s</span> linear;</span><br><span class="line"><span class="attribute">transition</span>:</span><br><span class="line"> color .<span class="number">25s</span> linear,</span><br><span class="line"> background-color .<span class="number">25s</span> linear,</span><br><span class="line"> border-color .<span class="number">25s</span> linear;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"><span class="selector-tag">Animation</span>(动画)</span><br><span class="line">&lt;<span class="selector-tag">quote</span>&gt;</span><br><span class="line"><span class="selector-tag">animation-name</span>动画的名称。</span><br><span class="line"><span class="selector-tag">animation-duration</span>定义动画播放一次需要的时间。默认为0；</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>定义动画播放的方式，参数设置类似<span class="selector-tag">transition-timing-function</span></span><br><span class="line"><span class="selector-tag">animation-delay</span>定义动画开始的时间</span><br><span class="line"><span class="selector-tag">animation-iteration-count</span>定义循环的次数，<span class="selector-tag">infinite</span>即为无限次。默认是1。</span><br><span class="line"><span class="selector-tag">-webkit-animation-direction</span>动画播放的方向，两个值，默认为<span class="selector-tag">normal</span>，这个时候动画的每次循环都向前播放。另一个值是<span class="selector-tag">alternate</span>，则第偶数次向前播放，第奇数次向反方向播放。</span><br><span class="line">&lt;/quote&gt;</span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-id">#rotate</span> &#123;</span><br><span class="line"> <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line"> <span class="attribute">width</span>:<span class="number">600px</span>;</span><br><span class="line"> <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line"> <span class="comment">/* 确保我们是在一个 3-D 空间 */</span></span><br><span class="line"> <span class="attribute">-webkit-transform-style</span>:preserve-<span class="number">3</span>d;</span><br><span class="line"> <span class="comment">/*让整个行使用x-轴旋转、7秒中的动画、无限次播放以及线性 */</span></span><br><span class="line"> <span class="attribute">-webkit-animation-name</span>:x-spin;</span><br><span class="line"> <span class="attribute">-webkit-animation-duration</span>:<span class="number">7s</span>;</span><br><span class="line"> <span class="attribute">-webkit-animation-iteration-count</span>:infinite;</span><br><span class="line"> <span class="attribute">-webkit-animation-timing-function</span>:linear;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>/<em> 定义要调用的动画 </em>/<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> @-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> x-spin &#123;</span><br><span class="line"> 0% &#123; <span class="attribute">-webkit-transform</span>:<span class="built_in">rotateX</span>(0deg); &#125;</span><br><span class="line"> 50% &#123; <span class="attribute">-webkit-transform</span>:<span class="built_in">rotateX</span>(180deg); &#125;</span><br><span class="line"> 100% &#123; <span class="attribute">-webkit-transform</span>:<span class="built_in">rotateX</span>(360deg); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/Css3-Transfrom/" data-id="cjozunvux0000osan88muv93q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-读JQuery攻略笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/读JQuery攻略笔记/" class="article-date">
+  <time datetime="2016-12-03T01:40:16.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/读JQuery攻略笔记/">读JQuery攻略笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>获取dom<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"domTagName"</span>);</span><br><span class="line">$(<span class="string">"#id"</span>);</span><br><span class="line">$(<span class="string">".class"</span>);</span><br><span class="line">$(<span class="string">'div:odd'</span>).addClass();</span><br><span class="line">$(<span class="string">'div:even'</span>).addClass();</span><br><span class="line">$(p:eq(<span class="number">1</span>)).addClass();</span><br><span class="line">$(<span class="built_in">document</span>).ready();</span><br><span class="line">children();</span><br><span class="line">prepend()<span class="comment">//在指定元素前面插入。//$('p').prepend('&lt;h2&gt;test&lt;/h2&gt;');</span></span><br><span class="line">prependTo();<span class="comment">//$('&lt;h2&gt;test&lt;/h2&gt;').prependTo('p');</span></span><br><span class="line">$(<span class="string">'h2'</span>).clone().prependTo(<span class="string">'p'</span>);</span><br><span class="line">$.each(arr, <span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>))</span>&#123;<span class="built_in">console</span>.log(value)&#125;</span><br><span class="line">$(<span class="string">'dom'</span>).css(<span class="string">'width'</span>,<span class="string">'10px'</span>);</span><br><span class="line">$(<span class="string">'dom'</span>).toggleClass(className);<span class="comment">//切换类</span></span><br><span class="line">remove()</span><br><span class="line">slideUp(spedd, callback)/slideDown(speed, callback);</span><br><span class="line">$(<span class="string">'p'</span>).animate(&#123;<span class="string">'left'</span>:<span class="number">600</span>&#125;, time);<span class="comment">//time可以为默认的slow 、normal 、fast</span></span><br><span class="line">animate(properites, speed, easing, callback);</span><br></pre></td></tr></table></figure></p>
+<p>正则：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/\b\d&#123;<span class="number">1</span>,<span class="number">2</span>&#125;[\/-]\d&#123;<span class="number">1</span>,<span class="number">2</span>&#125;[\/-]\d&#123;<span class="number">4</span>&#125;\b/</span><br><span class="line">\b在正则表达式的开始和结尾，表示，单词边界，也就是说，单词必须与模式完全匹配。</span><br><span class="line">\d&#123;<span class="number">1</span>,<span class="number">2</span>&#125; 意味着出现<span class="number">1</span>到<span class="number">2</span>位数字</span><br><span class="line">[\/-]意味着出现/或-</span><br><span class="line">\d&#123;<span class="number">4</span>&#125;出现<span class="number">4</span>位数字</span><br></pre></td></tr></table></figure></p>
+<p>电子邮箱<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^[\w-]+(\.[\w-]+）*@([\w-]+\.)+[a-zA-Z]+$)</span><br><span class="line">/^[\w-]+  意味着字母数字下划线或连续字符。^表示开始。</span><br><span class="line">$(<span class="string">'select option:selected'</span>).val();</span><br><span class="line">$(<span class="string">'dom'</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>))</span></span><br></pre></td></tr></table></figure></p>
+<p>文本css样式text-decoration:overline/underline/line-through</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/读JQuery攻略笔记/" data-id="cjozunvy5005nosan3e0q2vsw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JQuery基础教程-笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/JQuery基础教程-笔记/" class="article-date">
+  <time datetime="2016-12-03T01:39:53.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/JQuery基础教程-笔记/">JQuery基础教程 笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <quote><br>1.遍历连缀 $(‘#dom’).parent().find(‘p:eq(1)’).addClass(‘className’).end().find()<br><br>2.在支持标准事件类型（同时支持捕获和冒泡）的浏览器中，要把事件处理程序注册到捕获阶段，必须在标准的事件注册方法addEventListener()中将最后一个参数设置为true。ie的事件注册方法attacheEvent只能注册到冒泡阶段。.hover()这个方法可以聪明的处理冒泡问题。.stopPropagation（）可以阻止事件冒泡，.preventDefault（）可以阻止事件捕获。<br><br>3.fadeIn()、fadeOut()、fadeTo(）不透明度0~1，slideDown()、slideUp()高度。<br><br>4.所有块级元素默认的css定位属性都是static。在设置元素的left和top属性毫无作用，必须将元素的定位属性设置成relative或者absolute<br><br>5.在每个匹配的元素中插入新元素，使用,所选元素后.append()、.appendTo()、所选元素前.prepend()、.prependTo();<br><br>6.要在每个匹配的元素相邻的位置上插入新元素.after()、.insertAfter()、before()、.insertBefore()<br>7.在匹配的元素外部插入新元素 .wrap();<br><br>8.要用新元素或文本替换每个匹配的元素.html()、.text();<br><br>9.要移除每个匹配元素中的元素.empty()<br><br>10.filter()过滤  $table.find(‘td’).filter(‘:nth-child(0 2 4)’).addClass();<br><br>11..next()。当前元素的后一个同级元素<br><br>12. .scrollTop()和.scrollLeft();分别返回向下和向右滚动的像素值。如果给这两个方法传递一个参数，可以把页面滚动到指定的位置。<br><br>13. .offset(),返回一个坐标对象。该对象有一个left属性和一个top属性。<br><br>14.    <a href="http://pic002.cnblogs.com/images/2012/367527/2012102917382526.gif" target="_blank" rel="noopener">http://pic002.cnblogs.com/images/2012/367527/2012102917382526.gif</a><br><br>15.一如jquery之后，自定义全局函数。比如jquery自带的$.ajax();Example–&gt;$.extend({foo:function(){console.log(‘foo’)}})   &lt;==&gt; jQuery.extend({foo:function(){console.log(‘foo’)}})  ；定义全局数组赋值之后，任然会改变全局数组的值。因为赋值数组，只是，将数组的指针赋值给了新的数组。所以，只能通过方法返回一个数组的方式，这样 可以提高性能。或者 通过深度赋值的方法  var newArr = $.extend(true,[],globalArr); 建议使用前者。jquery内定的一些操作dom元素动画的方法，如，show()/hide()等。那么，我们同样可以自定义类似方法。Example–&gt; jQuery.fn.testAni = function(a,b){return this.animate({width:a+’px’,height:b+’px’})};调用方法。$(‘#dom’).testAni();<br><br>16. 创建缓动样式    缓动函数  jQuery.extend({‘easing’:{‘linear’:function(fraction, elapsed, attrStart, attrDelta, duration){return fraction * attrDelta + attrStart;}}})  第一个参数，动画当前位置，按照时间衡量，取值0~1（开始结束）；第二个参数，自动画开始所经过的毫秒数；第三个参数，即将变换的CSS属性的开始值；第四个参数，即将变换的CSS属性开始值与结束值的差。第五个参数，动画总共要经历的毫秒数<br></quote>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/JQuery基础教程-笔记/" data-id="cjozunvv80005osank3fxunus" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JQuery实战笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/JQuery实战笔记/" class="article-date">
+  <time datetime="2016-12-03T01:39:38.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/JQuery实战笔记/">JQuery实战笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>toggleClass()//切换两个类。</p>
+<p>绑定事件：<br>    $(dom).bind(eventType,data,listener);<br>    第一个参数事件类型。第二个参数，调用者提供的数据。第三个参数事件处理函数。第二个参数省略的时候，默认第二个参数就是listener</p>
+<p>使动画停止：stop();//停止当前正在运行的，包装集里的元素的所有动画，返回包装集</p>
+<p>$.map(Array,callBack); //$.map([0,1,2,3,4,5],function(val){return val + 1;})</p>
+<p>$.inArray(val,array)//var index = $.inArray(2,[1,2,3,4,5]);</p>
+<p>ajax–&gt;<br>      XHR属性 ：<br>        onreadystatechange 指派在请求的状态发生变化时所用的事件处理程序<br>        readystate   一个数值，指示请求的状态如下：0 ：未初始化；1：正在加载；2：已加载；3：交互；4：完成<br>responseText  在相应里返回的内容<br>status 从服务器返回的状态码，200表示成功，404表示未找到。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/JQuery实战笔记/" data-id="cjozunvvc000aosannj6rdaa1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTML5自定义属性DataSet" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/HTML5自定义属性DataSet/" class="article-date">
+  <time datetime="2016-12-03T01:39:20.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/HTML5自定义属性DataSet/">HTML5自定义属性DataSet</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>获取页面I属性D为test的元素：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#test"</span>);</span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">"#test"</span>)[<span class="number">0</span>];</span><br></pre></td></tr></table></figure></p>
+<p>获取页面class属性为”red”的元素:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByClassName(<span class="string">'red'</span>)</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.red'</span>)</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'.red'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>++++++++++++++++++++++++++++++++++++++++++++<br>获取dataset属性的例子：FireFox 4下面不支持<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"zdz"</span> <span class="attr">data-name-zdz</span>=<span class="string">"zhongdezong1"</span> <span class="attr">data-age</span>=<span class="string">"26"</span>&gt;</span></span><br><span class="line">    data-set-test1</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>获取某个属性值：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dom = documenty.getElementById(<span class="string">"zdz"</span>);</span><br><span class="line"><span class="keyword">var</span> domVal = dom.dataset.nameZdz;<span class="comment">//注意连字符号的必须用驼峰来取值。</span></span><br><span class="line"><span class="keyword">var</span> domAge = dom.dataset.age;</span><br></pre></td></tr></table></figure></p>
+<p>等价于===》<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> selector = <span class="string">'[data-name-zdz]'</span>;</span><br><span class="line"><span class="keyword">var</span> dom = <span class="built_in">document</span>.querySelector(selector);</span><br><span class="line"><span class="comment">//var dom = document.querySelectorAll(selector);//存在多个的情况下</span></span><br><span class="line"><span class="keyword">var</span> domVal = dom.dataset.nameZdz;<span class="comment">//注意连字符号的必须用驼峰来取值。</span></span><br><span class="line"><span class="keyword">var</span> domAge = dom.dataset.age;</span><br></pre></td></tr></table></figure></p>
+<p>//删除某个dataset属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> dom.dataset.age;</span><br></pre></td></tr></table></figure></p>
+<p>跟getAttribute相比。data的速度快，代码也明朗。在不知道浏览器是否支持data的情况下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dom = documenty.getElementById(<span class="string">"zdz"</span>);</span><br><span class="line"><span class="keyword">if</span>(dom.dataset)&#123;</span><br><span class="line">    dom.dataset.name = <span class="string">'zhongdezong'</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    dom.setAttribute(<span class="string">'data-name'</span>, <span class="string">'zhongdezong'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>css中的data属性<br>html代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'zdz'</span> <span class="attr">data-name</span>=<span class="string">"钟德宗"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>css代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.zdz</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.zdz</span><span class="selector-attr">[data-name="钟德宗"]</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>:<span class="built_in">url</span>(./bg.jpg) no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getBoundingClientRect(); <span class="comment">//取得元素在屏幕的位置信息</span></span><br><span class="line"></span><br><span class="line">alert(box.getBoundingClientRect().top);         <span class="comment">// 元素上边距离页面上边的距离</span></span><br><span class="line"></span><br><span class="line">alert(box.getBoundingClientRect().right);       <span class="comment">// 元素右边距离页面左边的距离</span></span><br><span class="line"></span><br><span class="line">alert(box.getBoundingClientRect().bottom);      <span class="comment">// 元素下边距离页面上边的距离</span></span><br><span class="line"></span><br><span class="line">alert(box.getBoundingClientRect().left);        <span class="comment">// 元素左边距离页面左边的距离</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parentDom.insertBefore(newChildDom, allChildDom);<span class="comment">//将一个新的子元素，插入另一个子元素的前面</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/HTML5自定义属性DataSet/" data-id="cjozunvv20001osanw2hxc71r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码片段/">代码片段</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-本地存储sqlLite" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/本地存储sqlLite/" class="article-date">
+  <time datetime="2016-12-03T01:38:43.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/本地存储sqlLite/">本地存储sqlLite</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html  &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">span</span>&#123; <span class="attribute">cursor</span>: pointer;&#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jq.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> search = $(<span class="string">'#search'</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> btSearch = $(<span class="string">'#btSearch'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> phoneBook = $(<span class="string">'#phoneBook'</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> name = $(<span class="string">'#name'</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> phone = $(<span class="string">'#phone'</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> add = $(<span class="string">'#add'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">//开始程序</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> db = openDatabase(<span class="string">'phoneBook'</span>, <span class="string">''</span>, <span class="string">'my'</span>, <span class="number">102400</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            init();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            add.click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">                save(name.val(), phone.val());</span></span><br><span class="line"><span class="undefined">            &#125;);</span></span><br><span class="line"><span class="javascript">            btSearch.click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">                init(search.val())</span></span><br><span class="line"><span class="undefined">            &#125;);</span></span><br><span class="line"><span class="javascript">            $(<span class="string">'#phoneBook span'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                deleteByName($(<span class="keyword">this</span>).attr(<span class="string">'name'</span>));</span></span><br><span class="line"><span class="javascript">                s = <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined">            &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">//初始化界面</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params">name</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                db.transaction(<span class="function"><span class="keyword">function</span> (<span class="params">tx1</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    tx1.executeSql(<span class="string">'create table if not exists phoneBook(name text, phone text)'</span>, []);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> sql = <span class="string">'select * from phoneBook where 1=1'</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> param = [];</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (name) &#123;</span></span><br><span class="line"><span class="javascript">                        sql += <span class="string">' and name=? '</span>;</span></span><br><span class="line"><span class="undefined">                        param.push(name);</span></span><br><span class="line"><span class="undefined">                    &#125;</span></span><br><span class="line"><span class="javascript">                    tx1.executeSql(sql, param, <span class="function"><span class="keyword">function</span> (<span class="params">tx1, rs</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                        phoneBook.html(<span class="string">''</span>);</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = rs.rows.length; i &lt; len; i++) &#123;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> data = rs.rows.item(i);</span></span><br><span class="line"><span class="undefined">                            showData(data);</span></span><br><span class="line"><span class="undefined">                        &#125;</span></span><br><span class="line"><span class="undefined">                    &#125;);</span></span><br><span class="line"><span class="undefined">                &#125;);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">showData</span>(<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> str = <span class="string">'&lt;div&gt;姓名：'</span> + data.name + <span class="string">'；电话：'</span> + data.phone + <span class="string">' &lt;span onclick="del(\''</span> + data.name + <span class="string">'\')" &gt;删除&lt;/span&gt;&lt;/div&gt;'</span>;</span></span><br><span class="line"><span class="javascript">                phoneBook.append($(str));</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">//删除数据</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">deleteByName</span>(<span class="params">name</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                db.transaction(<span class="function"><span class="keyword">function</span> (<span class="params">tx</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    tx.executeSql(<span class="string">'delete from phoneBook where name=?'</span>, [name], <span class="function"><span class="keyword">function</span> (<span class="params">tx, rs</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">                        init();</span></span><br><span class="line"><span class="undefined">                    &#125;)</span></span><br><span class="line"><span class="undefined">                &#125;);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.del = deleteByName;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//增加</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">save</span>(<span class="params">name, phone</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                db.transaction(<span class="function"><span class="keyword">function</span> (<span class="params">tx</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    tx.executeSql(<span class="string">'insert into phoneBook values(?, ?)'</span>, [name, phone], <span class="function"><span class="keyword">function</span> (<span class="params">tx, rs</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> d = &#123;&#125;;</span></span><br><span class="line"><span class="undefined">                        d.name = name;</span></span><br><span class="line"><span class="undefined">                        d.phone = phone;</span></span><br><span class="line"><span class="undefined">                        showData(d);</span></span><br><span class="line"><span class="undefined">                    &#125;)</span></span><br><span class="line"><span class="undefined">                &#125;);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">    </span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">        本地数据库实现web通讯录<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"search"</span> <span class="attr">placeholder</span>=<span class="string">"联系人姓名"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btSearch"</span>&gt;</span></span><br><span class="line">        搜索<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"phoneBook"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">    姓名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"name"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    手机：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"phone"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"add"</span>&gt;</span></span><br><span class="line">        添加到通讯录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/本地存储sqlLite/" data-id="cjozunvy1005fosanbbs3xra7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码片段/">代码片段</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript浏览器对象模型" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/JavaScript浏览器对象模型/" class="article-date">
+  <time datetime="2016-12-03T01:38:26.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/JavaScript浏览器对象模型/">JavaScript浏览器对象模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>window尺寸：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> w = <span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.cilentWidth || <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"><span class="keyword">var</span> h = <span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight;</span><br></pre></td></tr></table></figure></p>
+<p>其他window方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.open();</span><br><span class="line"><span class="built_in">window</span>.close();</span><br><span class="line"><span class="built_in">window</span>.moveTo();</span><br><span class="line"><span class="built_in">window</span>.resizeTo();</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/JavaScript浏览器对象模型/" data-id="cjozunvvh000iosanvw8qisuj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码片段/">代码片段</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript内存泄露问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/JavaScript内存泄露问题/" class="article-date">
+  <time datetime="2016-12-03T01:38:04.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/JavaScript内存泄露问题/">JavaScript内存泄露问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题：当应用程序越来越复杂并且ajax化之后，我们打开一个网页，过段时间发现浏览器消耗掉内存不断增大，很有可能是因为内存泄露，我们不得不考虑内存泄露的问题。</p>
+<p>javascript的内存管理<br>        javascript内存管理的核心也就是javascript垃圾回收机制，而在内存中的数据包括堆栈中的数据（局部变量，正在被调用的方法的参数）以及全局变量；而对象如果被引用或者存在一个引用链中时，也会存在在内存中。<br>容易造成JavaScript内存泄露几个方面<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>) Delete一个<span class="built_in">Object</span>的属性会让此对象变慢（多耗费<span class="number">15</span>倍的内存）</span><br><span class="line"><span class="keyword">var</span> o = &#123; <span class="attr">x</span>: <span class="string">'y'</span> &#125;;</span><br><span class="line"><span class="keyword">delete</span> o.x; <span class="comment">//此时o会成一个慢对象</span></span><br><span class="line">o.x; <span class="comment">//  </span></span><br><span class="line"> <span class="keyword">var</span> o = &#123; <span class="attr">x</span>: <span class="string">'y'</span> &#125;;</span><br><span class="line">o = <span class="literal">null</span>;  <span class="comment">//应该这样</span></span><br></pre></td></tr></table></figure></p>
+<p>2) 闭包<br>在闭包中引入闭包外部的变量时，当闭包结束时此对象无法被垃圾回收（GC）。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> largeStr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000</span>).join(<span class="string">'x'</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> largeStr;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure></p>
+<p>3) DOM泄露<br>当原有的COM被移除时，子结点引用没有被移除则无法回收。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> select = <span class="built_in">document</span>.querySelector;</span><br><span class="line"><span class="keyword">var</span> treeRef = select(<span class="string">'#tree'</span>);  </span><br><span class="line"> <span class="comment">//在COM树中leafRef是treeFre的一个子结点</span></span><br><span class="line"><span class="keyword">var</span> leafRef = select(<span class="string">'#leaf'</span>);  </span><br><span class="line"><span class="keyword">var</span> body = select(<span class="string">'body'</span>); </span><br><span class="line"> body.removeChild(treeRef); </span><br><span class="line"> <span class="comment">//#tree不能被回收入，因为treeRef还在</span></span><br><span class="line"><span class="comment">//解决方法:</span></span><br><span class="line">treeRef = <span class="literal">null</span>; </span><br><span class="line"> <span class="comment">//tree还不能被回收，因为叶子结果leafRef还在</span></span><br><span class="line">leafRef = <span class="literal">null</span>; </span><br><span class="line"> <span class="comment">//现在#tree可以被释放了。</span></span><br></pre></td></tr></table></figure></p>
+<p>4) Timers计（定）时器泄露<br>定时器也是常见产生内存泄露的地方：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">90000</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> buggyObject = &#123;</span><br><span class="line">    callAgain: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ref = <span class="keyword">this</span>;</span><br><span class="line">      <span class="keyword">var</span> val = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        ref.callAgain();</span><br><span class="line">      &#125;, <span class="number">90000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">   buggyObject.callAgain();</span><br><span class="line">  <span class="comment">//虽然你想回收但是timer还在</span></span><br><span class="line">  buggyObject = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>5) 调试内存<br>Chrome自带的内存调试工具可以很方便地查看内存使用情况和内存泄露：<br>在 Timeline -&gt; Memory 点击record即可</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/03/JavaScript内存泄露问题/" data-id="cjozunvvd000bosanbzhqq8h2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Egret/">Egret</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos2d-js/">cocos2d-js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos-creator/">cocos_creator</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocoscreater/">cocoscreater</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/createjs/">createjs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/seajs/">seajs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码片段/">代码片段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/杂谈/">杂谈</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端规范/">前端规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作生活/">工作生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网址收藏/">网址收藏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome浏览器/">Chrome浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Egret/">Egret</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-js/">cocos2d-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/createjs/">createjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastClick/">fastClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-ssh/">git/ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端规范/">前端规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网址收藏/">网址收藏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行业/">行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Chrome浏览器/" style="font-size: 10px;">Chrome浏览器</a> <a href="/tags/Egret/" style="font-size: 10px;">Egret</a> <a href="/tags/cocos2d-js/" style="font-size: 15px;">cocos2d-js</a> <a href="/tags/createjs/" style="font-size: 10px;">createjs</a> <a href="/tags/css3/" style="font-size: 13.33px;">css3</a> <a href="/tags/fastClick/" style="font-size: 10px;">fastClick</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-ssh/" style="font-size: 10px;">git/ssh</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/seajs/" style="font-size: 11.67px;">seajs</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/代码片段/" style="font-size: 20px;">代码片段</a> <a href="/tags/前端规范/" style="font-size: 10px;">前端规范</a> <a href="/tags/工作/" style="font-size: 18.33px;">工作</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/网址收藏/" style="font-size: 16.67px;">网址收藏</a> <a href="/tags/行业/" style="font-size: 10px;">行业</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/遇到的问题及解决方案/" style="font-size: 15px;">遇到的问题及解决方案</a> <a href="/tags/问题记录/" style="font-size: 10px;">问题记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/07/使用cocos-creator开发中碰到的问题及解决方案/">使用cocos creator开发中碰到的问题及解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/把前端应用部署到GitHub/">把前端应用部署到GitHub</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/canvas-长按保存图片/">canvas 长按保存图片</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-微信小游戏排行榜/">cocoscreater_微信小游戏排行榜</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-触摸事件类型和事件对象/">cocoscreater_触摸事件类型和事件对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

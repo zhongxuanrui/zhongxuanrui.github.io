@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>js工具类 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1var Tool = Tool || &amp;#123;&amp;#125;; 12345678910111213141516171819/** * 去字符串空格 * @str String 所要检测的字符串 * @type String 类型 * @returns bolean */Tool.trim = function(str, type)&amp;#123;	switch(type)&amp;#123;		case">
+<meta name="keywords" content="代码片段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js工具类">
+<meta property="og:url" content="http://yoursite.com/2017/12/27/js工具类/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1var Tool = Tool || &amp;#123;&amp;#125;; 12345678910111213141516171819/** * 去字符串空格 * @str String 所要检测的字符串 * @type String 类型 * @returns bolean */Tool.trim = function(str, type)&amp;#123;	switch(type)&amp;#123;		case">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-26T01:40:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js工具类">
+<meta name="twitter:description" content="1var Tool = Tool || &amp;#123;&amp;#125;; 12345678910111213141516171819/** * 去字符串空格 * @str String 所要检测的字符串 * @type String 类型 * @returns bolean */Tool.trim = function(str, type)&amp;#123;	switch(type)&amp;#123;		case">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js工具类" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/27/js工具类/" class="article-date">
+  <time datetime="2017-12-27T02:50:17.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码片段/">代码片段</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js工具类
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Tool = Tool || &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 去字符串空格</span><br><span class="line"> * @str String 所要检测的字符串</span><br><span class="line"> * @type String 类型</span><br><span class="line"> * @returns bolean</span><br><span class="line"> */</span><br><span class="line">Tool.trim = function(str, type)&#123;</span><br><span class="line">	switch(type)&#123;</span><br><span class="line">		case &apos;l_trim&apos; : &#123;</span><br><span class="line">			return str.replace(/(^\s*)/g, &apos;&apos;);</span><br><span class="line">		&#125;;</span><br><span class="line">		case &apos;r_trim&apos; : &#123;</span><br><span class="line">			return str.replace(/(\s*$)/g, &apos;&apos;);</span><br><span class="line">		&#125;;</span><br><span class="line">		default : &#123;</span><br><span class="line">			return str.replace(/(^\s*)|(\s*$)/g, &apos;&apos;);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 判断开始字符是否是XX</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">App.startWith = <span class="function"><span class="keyword">function</span>(<span class="params">source, str</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^"</span> + str);</span><br><span class="line">    <span class="keyword">return</span> reg.test(source);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断结束字符是否是XX</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.endWith = <span class="function"><span class="keyword">function</span>(<span class="params">source, str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(str + <span class="string">"$"</span>);</span><br><span class="line">    <span class="keyword">return</span> reg.test(source);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将form表单元素的值序列化成对象</span></span><br><span class="line"><span class="comment"> * @example App.serializeForm($('#formId'))</span></span><br><span class="line"><span class="comment"> * @requires jQuery</span></span><br><span class="line"><span class="comment"> * @returns object</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.serializeForm = <span class="function"><span class="keyword">function</span>(<span class="params">form</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">    $.each(form.serializeArray(), <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>[<span class="string">'value'</span>] = App.trim(<span class="keyword">this</span>[<span class="string">'value'</span>]);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>[<span class="string">'value'</span>] != <span class="literal">undefined</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">'value'</span>].length &gt; <span class="number">0</span>) &#123;<span class="comment">// 如果表单项的值非空，才进行序列化操作</span></span><br><span class="line">            <span class="keyword">if</span> (o[<span class="keyword">this</span>[<span class="string">'name'</span>]]) &#123;</span><br><span class="line">                o[<span class="keyword">this</span>[<span class="string">'name'</span>]] = o[<span class="keyword">this</span>[<span class="string">'name'</span>]] + <span class="string">","</span> + <span class="keyword">this</span>[<span class="string">'value'</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                o[<span class="keyword">this</span>[<span class="string">'name'</span>]] = <span class="keyword">this</span>[<span class="string">'value'</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 为json数据映射入表单，要求表单name对应json的每个name</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">App.setForm = <span class="function"><span class="keyword">function</span>(<span class="params">form, data</span>) </span>&#123;</span><br><span class="line">    $.each(form.serializeArray(), <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> name = <span class="keyword">this</span>[<span class="string">'name'</span>];</span><br><span class="line">        <span class="keyword">var</span> input = $(<span class="string">':input[name="'</span>+ name +<span class="string">'"]'</span>);</span><br><span class="line">        <span class="keyword">if</span>(input)</span><br><span class="line">            input.val(data[name]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 增加formatString功能</span></span><br><span class="line"><span class="comment"> * @example App.formatString('字符串&#123;0&#125;字符串&#123;1&#125;字符串','第一个变量','第二个变量');</span></span><br><span class="line"><span class="comment"> * @returns 格式化后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.formatString = <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        str = str.replace(<span class="string">"&#123;"</span> + i + <span class="string">"&#125;"</span>, <span class="built_in">arguments</span>[i + <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接收一个以逗号分割的字符串，返回List，list里每一项都是一个字符串</span></span><br><span class="line"><span class="comment"> * @returns list</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.stringToList = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (value != <span class="literal">undefined</span> &amp;&amp; value != <span class="string">''</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> values = [];</span><br><span class="line">        <span class="keyword">var</span> t = value.split(<span class="string">','</span>);</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; t.length; i++) &#123;</span><br><span class="line">                values.push(<span class="string">''</span> + t[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> values;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> [];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JSON对象转换成String</span></span><br><span class="line"><span class="comment"> * @param o</span></span><br><span class="line"><span class="comment"> * @returns</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.jsonToString = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> r = [];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> o == <span class="string">"string"</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"\""</span> + o.replace(<span class="regexp">/([\'\"\\])/g</span>, <span class="string">"\\$1"</span>).replace(<span class="regexp">/(\n)/g</span>, <span class="string">"\\n"</span>).replace(<span class="regexp">/(\r)/g</span>, <span class="string">"\\r"</span>).replace(<span class="regexp">/(\t)/g</span>, <span class="string">"\\t"</span>) + <span class="string">"\""</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> o == <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!o.sort) &#123;</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">var</span> i <span class="keyword">in</span> o)</span><br><span class="line">                r.push(i + <span class="string">":"</span> + App.jsonToString(o[i]));</span><br><span class="line">            <span class="keyword">if</span> (!!<span class="built_in">document</span>.all &amp;&amp; !<span class="regexp">/^\n?function\s*toString\(\)\s*\&#123;\n?\s*\[native code\]\n?\s*\&#125;\n?\s*$/</span>.test(o.toString)) &#123;</span><br><span class="line">                r.push(<span class="string">"toString:"</span> + o.toString.toString());</span><br><span class="line">            &#125;</span><br><span class="line">            r = <span class="string">"&#123;"</span> + r.join() + <span class="string">"&#125;"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; o.length; i++)</span><br><span class="line">                r.push(App.jsonToString(o[i]));</span><br><span class="line">            r = <span class="string">"["</span> + r.join() + <span class="string">"]"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o.toString();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * cookie</span></span><br><span class="line"><span class="comment"> * @param key</span></span><br><span class="line"><span class="comment"> * @param value</span></span><br><span class="line"><span class="comment"> * @param options</span></span><br><span class="line"><span class="comment"> * @returns</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.cookie = <span class="function"><span class="keyword">function</span>(<span class="params">key, value, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length &gt; <span class="number">1</span> &amp;&amp; (value === <span class="literal">null</span> || <span class="keyword">typeof</span> value !== <span class="string">"object"</span>)) &#123;</span><br><span class="line">        options = $.extend(&#123;&#125;, options);</span><br><span class="line">        <span class="keyword">if</span> (value === <span class="literal">null</span>) &#123;</span><br><span class="line">            options.expires = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> options.expires === <span class="string">'number'</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> days = options.expires, t = options.expires = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">            t.setDate(t.getDate() + days);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">document</span>.cookie = [ <span class="built_in">encodeURIComponent</span>(key), <span class="string">'='</span>, options.raw ? <span class="built_in">String</span>(value) : <span class="built_in">encodeURIComponent</span>(<span class="built_in">String</span>(value)), options.expires ? <span class="string">'; expires='</span> + options.expires.toUTCString() : <span class="string">''</span>, options.path ? <span class="string">'; path='</span> + options.path : <span class="string">''</span>, options.domain ? <span class="string">'; domain='</span> + options.domain : <span class="string">''</span>, options.secure ? <span class="string">'; secure'</span> : <span class="string">''</span> ].join(<span class="string">''</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    options = value || &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> result, decode = options.raw ? <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125; : <span class="built_in">decodeURIComponent</span>;</span><br><span class="line">    <span class="keyword">return</span> (result = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(?:^|; )'</span> + <span class="built_in">encodeURIComponent</span>(key) + <span class="string">'=([^;]*)'</span>).exec(<span class="built_in">document</span>.cookie)) ? decode(result[<span class="number">1</span>]) : <span class="literal">null</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断IE浏览器类型，向后兼容。如果是IE9，返回9，如果是IE8，返回8；非IE，返回false</span></span><br><span class="line"><span class="comment"> * @param o</span></span><br><span class="line"><span class="comment"> * @returns</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.IE = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> v = <span class="number">3</span>, div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>), all = div.getElementsByTagName(<span class="string">'i'</span>); </span><br><span class="line">    <span class="keyword">while</span> (div.innerHTML = <span class="string">'&lt;!--[if gt IE '</span> + (++v) + <span class="string">']&gt;&lt;i&gt;&lt;/i&gt;&lt;![endif]--&gt;'</span>,all[<span class="number">0</span>]); </span><br><span class="line">    <span class="keyword">return</span> v &gt; <span class="number">4</span> ? v : <span class="literal">false</span> ; </span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解析URL攜帶的?之後的參數，轉換為對象，返回之</span></span><br><span class="line"><span class="comment"> * @param location</span></span><br><span class="line"><span class="comment"> * @returns</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.getURLparams = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(location.search)&#123;</span><br><span class="line">        <span class="keyword">var</span> search_params = location.search.substr(<span class="number">1</span>).split(<span class="string">'&amp;'</span>);</span><br><span class="line">        <span class="keyword">if</span>(search_params)&#123;</span><br><span class="line">            $.each(search_params, <span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">                o[<span class="keyword">this</span>.split(<span class="string">'='</span>)[<span class="number">0</span>]] = <span class="built_in">decodeURIComponent</span>(<span class="keyword">this</span>.split(<span class="string">'='</span>)[<span class="number">1</span>]);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解析string 成为object</span></span><br><span class="line"><span class="comment"> * @param str, index</span></span><br><span class="line"><span class="comment"> * @returns</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.extractStringtoObject = <span class="function"><span class="keyword">function</span>(<span class="params">str, index, sym</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(index != <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> i = str.indexOf(<span class="string">'='</span>, index);</span><br><span class="line">        o[str.substr(<span class="number">0</span>, i)] = str.substr(i + <span class="number">1</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(sym == <span class="literal">null</span>)</span><br><span class="line">            sym = <span class="string">'$'</span>;</span><br><span class="line">        <span class="keyword">var</span> search_params = str.split(sym);</span><br><span class="line">        <span class="keyword">if</span>(search_params)&#123;</span><br><span class="line">            $.each(search_params, <span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">                o[<span class="keyword">this</span>.split(<span class="string">'='</span>)[<span class="number">0</span>]] = <span class="keyword">this</span>.split(<span class="string">'='</span>)[<span class="number">1</span>];</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取URL的contextPath</span></span><br><span class="line"><span class="comment"> * @param</span></span><br><span class="line"><span class="comment"> * @returns</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">App.contextPath = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = location.origin;</span><br><span class="line">    <span class="keyword">var</span> pathname = location.pathname;</span><br><span class="line">    <span class="keyword">var</span> projectname = pathname.substr(<span class="number">0</span>, pathname.indexOf(<span class="string">'/'</span>, <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> origin + projectname;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> 生成指定位数的随机整数 </span></span><br><span class="line"><span class="comment"> **/</span>  </span><br><span class="line">App.getRandomNum = <span class="function"><span class="keyword">function</span>(<span class="params">count</span>)</span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>;  </span><br><span class="line">    <span class="keyword">var</span> reNum = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;count;i++)&#123;  </span><br><span class="line">        arr[i] = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*<span class="number">10</span>);  </span><br><span class="line">        reNum += <span class="built_in">String</span>(arr[i]);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> reNum;  </span><br><span class="line">&#125;  </span><br><span class="line">App.random = <span class="function"><span class="keyword">function</span>(<span class="params">min,max</span>)</span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.floor(min+<span class="built_in">Math</span>.random()*(max-min));  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 给URL追加参数 </span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; url </span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; parameter 参数名 </span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; value  参数值 </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line">App.urlAddParmert = <span class="function"><span class="keyword">function</span>(<span class="params">url,parameter,value</span>)</span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> StringBuffer();  </span><br><span class="line">    <span class="keyword">if</span>(!isEmpty(url))&#123;  </span><br><span class="line">        buf.append(url);  </span><br><span class="line">        <span class="keyword">if</span>(url.indexOf(<span class="string">"?"</span>) &gt; <span class="number">-1</span>)&#123;  <span class="comment">//已经有参数  </span></span><br><span class="line">            buf.append(<span class="string">"&amp;"</span>);  </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;  </span><br><span class="line">            buf.append(<span class="string">"?"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        buf.append(parameter);  </span><br><span class="line">        buf.append(<span class="string">"="</span>);  </span><br><span class="line">        buf.append(value);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> buf.toString();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 得到文件的扩展名 </span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; filename </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line">App.getFileExt = <span class="function"><span class="keyword">function</span>(<span class="params">filename</span>)</span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> d=<span class="regexp">/\.[^\.]+$/</span>.exec(filename);  </span><br><span class="line">    <span class="keyword">var</span> ext = <span class="keyword">new</span> <span class="built_in">String</span>(d);  </span><br><span class="line">    <span class="keyword">var</span> s = ext.toLowerCase();  </span><br><span class="line">    <span class="keyword">return</span> s;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/27/js工具类/" data-id="cjozunvwh002bosan3ihbdhzf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码片段/">代码片段</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/27/css3变形/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          css3变形
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/27/jquery-extend/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jquery_extend</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Egret/">Egret</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos2d-js/">cocos2d-js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocos-creator/">cocos_creator</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cocoscreater/">cocoscreater</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/createjs/">createjs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/seajs/">seajs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码片段/">代码片段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/杂谈/">杂谈</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端规范/">前端规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作生活/">工作生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网址收藏/">网址收藏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题及解决方案/">遇到的问题及解决方案</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome浏览器/">Chrome浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Egret/">Egret</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-js/">cocos2d-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/createjs/">createjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastClick/">fastClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-ssh/">git/ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端规范/">前端规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网址收藏/">网址收藏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行业/">行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/遇到的问题及解决方案/">遇到的问题及解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Chrome浏览器/" style="font-size: 10px;">Chrome浏览器</a> <a href="/tags/Egret/" style="font-size: 10px;">Egret</a> <a href="/tags/cocos2d-js/" style="font-size: 15px;">cocos2d-js</a> <a href="/tags/createjs/" style="font-size: 10px;">createjs</a> <a href="/tags/css3/" style="font-size: 13.33px;">css3</a> <a href="/tags/fastClick/" style="font-size: 10px;">fastClick</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-ssh/" style="font-size: 10px;">git/ssh</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/seajs/" style="font-size: 11.67px;">seajs</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/代码片段/" style="font-size: 20px;">代码片段</a> <a href="/tags/前端规范/" style="font-size: 10px;">前端规范</a> <a href="/tags/工作/" style="font-size: 18.33px;">工作</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/网址收藏/" style="font-size: 16.67px;">网址收藏</a> <a href="/tags/行业/" style="font-size: 10px;">行业</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/遇到的问题及解决方案/" style="font-size: 15px;">遇到的问题及解决方案</a> <a href="/tags/问题记录/" style="font-size: 10px;">问题记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/07/使用cocos-creator开发中碰到的问题及解决方案/">使用cocos creator开发中碰到的问题及解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/把前端应用部署到GitHub/">把前端应用部署到GitHub</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/canvas-长按保存图片/">canvas 长按保存图片</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-微信小游戏排行榜/">cocoscreater_微信小游戏排行榜</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/10/cocoscreater-触摸事件类型和事件对象/">cocoscreater_触摸事件类型和事件对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
